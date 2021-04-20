@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".ui.home.HomeFragment">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="142dp"
+            android:layout_height="127dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/vaccine"
+            app:tint="@color/blue_500" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal"
+            android:text="Set up an Appointment"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/gray_100"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+
+            app:layout_constraintBottom_toTopOf="@+id/text_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/text_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:gravity="center_horizontal"
+            android:justificationMode="inter_word"
+            android:text="See if you're eligible to take the COVID19 Vaccine and set up an appointment at your nearest provider."
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/gray_400"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/registerbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <Button
+            android:id="@+id/registerbtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="96dp"
+            android:includeFontPadding="false"
+            android:padding="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Button"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:backgroundTint="@color/blue_500"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

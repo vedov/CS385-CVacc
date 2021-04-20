@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="CVaccQuestions"
+            type="com.example.cvacc.QuestionFragment"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".QuestionFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="8dp"
+                android:foregroundGravity="center_vertical"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/segmented_progressbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:text="@{CVaccQuestions.currentQuestion.theQuestion}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/gray_100"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginTop="16dp"
+                    android:justificationMode="inter_word"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:text="@{CVaccQuestions.currentQuestion.description}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/gray_400"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginTop="16dp"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:padding="16dp"
+                    android:text="Yes"
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="#039BE5"
+                    app:strokeWidth="1.5dp" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:padding="16dp"
+                    android:text="No"
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="#039BE5"
+                    app:strokeWidth="1.5dp" />
+
+            </LinearLayout>
+
+            <com.carlosmuvi.segmentedprogressbar.SegmentedProgressBar
+                android:id="@+id/segmented_progressbar"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
