@@ -1,5 +1,6 @@
 package com.example.cvacc
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.example.cvacc.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -32,7 +34,7 @@ class ProfileFragment : Fragment() {
 
         firestore = FirebaseFirestore.getInstance()
         userId = mAuth.currentUser.uid
-
+        val logout = binding.logout
         val docRef = firestore.collection("users").document(userId)
         docRef.get()
             .addOnSuccessListener { document ->
@@ -56,6 +58,13 @@ class ProfileFragment : Fragment() {
         //odgovori.addAll()
         //odgovori.add(activity.sendData().toString())
 
+        logout.setOnClickListener {
+            mAuth.signOut()
+            Toast.makeText(context, "Logged Out", Toast.LENGTH_SHORT)
+                .show()
+            val intent = Intent(context, WelcomeActivity::class.java)
+            startActivity(intent)
+        }
 
         //binding.cVacc = this
         return binding.root

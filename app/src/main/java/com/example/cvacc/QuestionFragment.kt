@@ -63,7 +63,7 @@ class QuestionFragment : Fragment() {
         Question("Do you work or reside in Elderly Care? ",
             "nanannana",true,true),
 
-        Question("Choose vakcinu mrs ",
+        Question("Choose vakcinu  ",
             "nanannana"),
         
         )
@@ -123,6 +123,7 @@ class QuestionFragment : Fragment() {
                 //counterNE++
                 notEligibleQuestion.add(currentQuestion)
                 ListaLosihOdgovora.add(currentQuestion.theQuestion)
+                ListaLosihOdgovora.add("Yes")
                 val reason = notEligibleQuestion[0].theQuestion
                 Log.d("aaa",notEligibleQuestion.toString())
                 checkAnswer(yes.text.toString())
@@ -147,9 +148,11 @@ class QuestionFragment : Fragment() {
 
         no.setOnClickListener {
             ListaIzabranihOdgovora.add(no.text.toString())
-            checkAnswer(no.text.toString())
 
-            segmentedProgressBar.incrementCompletedSegments()
+                checkAnswer(no.text.toString())
+                segmentedProgressBar.incrementCompletedSegments()
+
+
         }
 
         pfizer.setOnClickListener {
@@ -204,6 +207,7 @@ class QuestionFragment : Fragment() {
         val actionE = QuestionFragmentDirections.actionQuestionFragmentToEligibleFragment(vakcina)
         if (questionIndex >= questions.size - 1) {
             if(ListaLosihOdgovora.size>0){
+
                 findNavController().navigate(actionNE)
             }
             else findNavController().navigate(actionE)

@@ -50,6 +50,7 @@ class EligibleFragment : Fragment() {
         docRef.update("vaccine",odg)
         val timestamp = FieldValue.serverTimestamp()
         docRef.update("appointment-date",timestamp)
+        docRef.update("appointment-scheduled","Yes")
         Log.d("bbbbb", odg)
         //Log.d("bbbb",FieldValue.serverTimestamp().toString())
     }

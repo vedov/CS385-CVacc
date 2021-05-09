@@ -41,9 +41,9 @@ class NotEligibleFragment : Fragment() {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     odgovori.add(document.data.toString())
-                    val odg : TextView = binding.textView9
+                    val odg : TextView = binding.badquestions
                     odg.text = document.getString("name")
-                    Log.d("Allah", "DocumentSnapshot data: ${document.data}")
+                    Log.d("alla", "DocumentSnapshot data: ${document.data}")
                 } else {
                     Log.d("TAG", "No such document")
                 }
@@ -51,6 +51,7 @@ class NotEligibleFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d("TAG", "get failed with ", exception)
             }
+        docRef.update("appointment-scheduled","No")
         val args = NotEligibleFragmentArgs.fromBundle(requireArguments())
         val activity: MainActivity = activity as MainActivity
         odgovori.addAll(args.sazetak)
