@@ -23,11 +23,12 @@ class QuestionFragment : Fragment() {
     lateinit var currentQuestion: Question
     var priority = false;
     var notEligibleQuestion: MutableList<Question> = mutableListOf()
-    var questionIndex = 0
+    var questionIndex: Int = 0
+    var ListaLosihOdgovora: MutableList<String> = mutableListOf()
     var ListaIzabranihOdgovora: MutableList<String> = mutableListOf()
     var questions = arrayListOf<Question>(
+        Question("Are you a citizen of Bosnia & Herzegovina?","",false,false),
         Question("Do you have COVID-19?","",false,false),
-
         Question("Did you have COVID-19 in the last 6 months?",
             " individuals may wish to defer their own COVID-19 vaccination for up to 6 " +
                     "months from the time of SARS-CoV-2 infection. " +
@@ -61,8 +62,13 @@ class QuestionFragment : Fragment() {
 
         Question("Do you work or reside in Elderly Care? ",
             "nanannana",true,true),
+
+        Question("Choose vakcinu mrs ",
+            "nanannana"),
         
         )
+    var vakcina = ""
+    //var counterNE: Int = 0
 
     private fun setQuestion() {
         currentQuestion = questions[questionIndex]
@@ -71,6 +77,7 @@ class QuestionFragment : Fragment() {
     //Next Question
     private fun checkAnswer(answer: String) {
         questionIndex++
+        showButtons()
         if (questionIndex < questions.size) {
             setQuestion()
             binding.invalidateAll()
@@ -95,6 +102,11 @@ class QuestionFragment : Fragment() {
 
         var yes = binding.button2
         var no = binding.button3
+        var pfizer = binding.button4
+        var moderna = binding.button5
+        var astraZe = binding.button6
+        var sputnik = binding.button7
+
 
         var segmentedProgressBar: SegmentedProgressBar = binding.segmentedProgressbar
         segmentedProgressBar.setSegmentCount(questions.size);
@@ -108,12 +120,17 @@ class QuestionFragment : Fragment() {
             ListaIzabranihOdgovora.add(yes.text.toString())
             //Provjeri da li je tu prepreka,ako jeste,preskoci sve i prikazi da ne ispunjava uslov za vakcinaciju
             if (currentQuestion.eligible == false) {
+                //counterNE++
                 notEligibleQuestion.add(currentQuestion)
+                ListaLosihOdgovora.add(currentQuestion.theQuestion)
                 val reason = notEligibleQuestion[0].theQuestion
+                Log.d("aaa",notEligibleQuestion.toString())
+                checkAnswer(yes.text.toString())
+                segmentedProgressBar.incrementCompletedSegments();
                 /*val action =
                     QuestionFragmentDirections.actionQuestionFragmentToNoAppointmentFragment(reason)
                 findNavController().navigate(action)*/
-                questionIndex++
+                //questionIndex++
             }
             else{
                 //POSTAVLJANJE PRIORITETA ZA KORISNIKA, DOSTUPNI DATUMI PRIJE ONIH BEZ PRIORITETA, ODP SEDMICA DVIJE
@@ -122,6 +139,7 @@ class QuestionFragment : Fragment() {
                     Log.d("PRIORITY QUESTION",priority.toString())
                 }
                 checkAnswer(yes.text.toString())
+
                 segmentedProgressBar.incrementCompletedSegments();
             }
 
@@ -130,19 +148,65 @@ class QuestionFragment : Fragment() {
         no.setOnClickListener {
             ListaIzabranihOdgovora.add(no.text.toString())
             checkAnswer(no.text.toString())
-            segmentedProgressBar.incrementCompletedSegments();
+
+            segmentedProgressBar.incrementCompletedSegments()
         }
 
+        pfizer.setOnClickListener {
+            vakcina = pfizer.text.toString()
+            checkAnswer(pfizer.text.toString())
+
+            segmentedProgressBar.incrementCompletedSegments()
+        }
+        moderna.setOnClickListener {
+            vakcina = moderna.text.toString()
+            checkAnswer(moderna.text.toString())
+
+            segmentedProgressBar.incrementCompletedSegments()
+        }
+        astraZe.setOnClickListener {
+            vakcina = astraZe.text.toString()
+            checkAnswer(astraZe.text.toString())
+
+            segmentedProgressBar.incrementCompletedSegments()
+        }
+        sputnik.setOnClickListener {
+            vakcina = sputnik.text.toString()
+            checkAnswer(sputnik.text.toString())
+
+            segmentedProgressBar.incrementCompletedSegments()
+        }
 
 
     }
 
+    private fun showButtons() {
+        if(questionIndex == questions.size - 1){
+            Log.d("broj",questionIndex.toString())
+            var pfizer = binding.button4
+            var moderna = binding.button5
+            var astraZe = binding.button6
+            var sputnik = binding.button7
+            var yes = binding.button2
+            var no = binding.button3
+            pfizer.visibility = View.VISIBLE
+            moderna.visibility = View.VISIBLE
+            astraZe.visibility = View.VISIBLE
+            sputnik.visibility = View.VISIBLE
+            yes.visibility = View.GONE
+            no.visibility = View.GONE
+        }
+    }
     private fun getListaOdgovora() {
 
-        val action = QuestionFragmentDirections.actionQuestionFragmentToSummaryFragment(
-            ListaIzabranihOdgovora.toTypedArray())
+        val actionNE = QuestionFragmentDirections.actionQuestionFragmentToNotEligibleFragment(
+            ListaLosihOdgovora.toTypedArray())
+        val actionE = QuestionFragmentDirections.actionQuestionFragmentToEligibleFragment(vakcina)
         if (questionIndex >= questions.size - 1) {
-            findNavController().navigate(action)
+            if(ListaLosihOdgovora.size>0){
+                findNavController().navigate(actionNE)
+            }
+            else findNavController().navigate(actionE)
         }
     }
 

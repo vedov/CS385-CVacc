@@ -17,12 +17,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var mAuth: FirebaseAuth
+    var databaseReference: DatabaseReference ?= null
+    var database: FirebaseDatabase ?= null
     var niz : String ?= ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,8 +75,15 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
+        mAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database?.reference?.child("profile")
+
+        //loadProfile()
+
         sendData()
     }
+
 
     //Show Bottom Navigation depending on which fragment is open
     private fun BottomNavController(destination: NavDestination){

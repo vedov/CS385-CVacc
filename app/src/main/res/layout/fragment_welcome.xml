@@ -112,6 +112,7 @@
                 app:startIconDrawable="@drawable/info">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="E-mail" />
@@ -136,12 +137,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-                app:startIconDrawable="@drawable/info">
+                app:startIconDrawable="@drawable/info"
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

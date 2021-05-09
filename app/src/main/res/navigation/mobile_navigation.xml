@@ -42,16 +42,28 @@
         android:label="QuestionFragment"
         tools:layout="@layout/fragment_question">
         <action
-            android:id="@+id/action_questionFragment_to_summaryFragment"
-            app:destination="@id/summaryFragment" />
+            android:id="@+id/action_questionFragment_to_notEligibleFragment"
+            app:destination="@id/notEligibleFragment" />
+        <action
+            android:id="@+id/action_questionFragment_to_eligibleFragment"
+            app:destination="@id/eligibleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/summaryFragment"
-        android:name="com.example.cvacc.SummaryFragment"
-        android:label="Schedule an Appointment"
-        tools:layout="@layout/fragment_summary" >
+        android:id="@+id/notEligibleFragment"
+        android:name="com.example.cvacc.NotEligibleFragment"
+        android:label="NotEligibleFragment"
+        tools:layout="@layout/fragment_not_eligible">
         <argument
             android:name="sazetak"
             app:argType="string[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/eligibleFragment"
+        android:name="com.example.cvacc.EligibleFragment"
+        android:label="EligibleFragment"
+        tools:layout="@layout/fragment_eligible">
+        <argument
+            android:name="vaccine"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "533443545891",
+    "firebase_url": "https://cvacc-e362c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cvacc-e362c",
+    "storage_bucket": "cvacc-e362c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533443545891:android:5fca264752be7052bbda96",
+        "android_client_info": {
+          "package_name": "com.example.cvacc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533443545891-e1nu8r8t1ndjgj2pd3l7m89hcf608eoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdrtD6U2Yk1BSKkKvYwMY78jTMiZ-Jtfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533443545891-e1nu8r8t1ndjgj2pd3l7m89hcf608eoe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

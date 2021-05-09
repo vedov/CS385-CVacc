@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="CVaccSummary"
-            type="com.example.cvacc.SummaryFragment" />
+            name="CVaccNotEligible"
+            type="com.example.cvacc.NotEligibleFragment" />
     </data>
 
     <FrameLayout
@@ -61,8 +61,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@{CVaccSummary.odgovori.toString()}"
+
                     android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{CVaccNotEligible.odgovori.toString()}" />
 
                 <Button
                     android:id="@+id/button"

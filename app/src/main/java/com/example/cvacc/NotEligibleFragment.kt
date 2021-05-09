@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.cvacc.databinding.FragmentProfileBinding
+import com.example.cvacc.databinding.FragmentNotEligibleBinding
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import org.w3c.dom.Text
 
-
-class ProfileFragment : Fragment() {
-    private lateinit var binding: FragmentProfileBinding
+class NotEligibleFragment : Fragment() {
+    private lateinit var binding: FragmentNotEligibleBinding
     lateinit var mAuth: FirebaseAuth;
     lateinit var firestore: FirebaseFirestore
     lateinit var userId: String
@@ -25,45 +25,38 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentProfileBinding.inflate(inflater)
-
-
-        mAuth = FirebaseAuth.getInstance()
-
-        firestore = FirebaseFirestore.getInstance()
-        userId = mAuth.currentUser.uid
-
-        val docRef = firestore.collection("users").document(userId)
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    val name : TextView = binding.name
-                    val mail: TextView = binding.email
-                    val age: TextView = binding.age
-                    name.text = document.getString("name")
-                    mail.text = document.getString("email")
-                    age.text = document.getString("dob")
-                    Log.d("aaaaa",name.text.toString())
-
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("TAG", "get failed with ", exception)
-            }
-        //val args = SummaryFragmentArgs.fromBundle(requireArguments())
-        //val activity: MainActivity = activity as MainActivity
-        //odgovori.addAll(args.sazetak)
-        //odgovori.addAll()
-        //odgovori.add(activity.sendData().toString())
-
-
-        //binding.cVacc = this
+        binding = FragmentNotEligibleBinding.inflate(inflater)
+        binding.cVaccNotEligible = this
         return binding.root
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        mAuth = FirebaseAuth.getInstance()
 
-
+        firestore = FirebaseFirestore.getInstance()
+        userId = mAuth.currentUser.uid
+        val docRef = firestore.collection("users").document(userId)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    odgovori.add(document.data.toString())
+                    val odg : TextView = binding.textView9
+                    odg.text = document.getString("name")
+                    Log.d("Allah", "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d("TAG", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("TAG", "get failed with ", exception)
+            }
+        val args = NotEligibleFragmentArgs.fromBundle(requireArguments())
+        val activity: MainActivity = activity as MainActivity
+        odgovori.addAll(args.sazetak)
+        odgovori.add(activity.sendData().toString())
     }
+
+   // private fun checkAnswers(MutableList<String>)
+
 }
