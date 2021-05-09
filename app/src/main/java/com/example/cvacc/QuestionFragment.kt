@@ -1,5 +1,6 @@
 package com.example.cvacc
 
+import android.R
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
