@@ -16,7 +16,6 @@ import java.util.*
 
 
 class RegisterFragment : Fragment() {
-    var podaci: MutableList<String> = mutableListOf()
     lateinit var mAuth: FirebaseAuth;
     lateinit var firestore: FirebaseFirestore
     lateinit var userId: String
@@ -30,7 +29,7 @@ class RegisterFragment : Fragment() {
             R.layout.fragment_register, container, false
         )
 
-        val register = binding.registerBtn
+        val registerBtn = binding.registerBtn
         val name = binding.registerName
         val email = binding.registerEmail
         val password = binding.registerPw
@@ -40,8 +39,7 @@ class RegisterFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        register.setOnClickListener {
-
+        registerBtn.setOnClickListener {
             if (email.text.toString().isEmpty()) {
                 email.setError("Please enter your email.")
                 return@setOnClickListener
@@ -64,29 +62,18 @@ class RegisterFragment : Fragment() {
             mAuth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-
-                       userId = mAuth.currentUser.uid
-                        val docRef: DocumentReference = firestore.collection("users").document(userId)
+                        userId = mAuth.currentUser.uid
+                        val docRef: DocumentReference =
+                            firestore.collection("users").document(userId)
                         val user = hashMapOf<String, Any?>()
                         user.put("name", name.text.toString())
                         user.put("email", email.text.toString())
                         user.put("dob", age.text.toString())
                         docRef.set(user)
 
-
                         Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT)
                             .show()
-                        //TO DO POP BACK STACK
-                        //activity?.supportFragmentManager?.popBackStack()
-
-                        //create an Intent object
-                        //create an Intent object
                         val intent = Intent(context, MainActivity::class.java)
-                        //add data to the Intent object
-                        //add data to the Intent object
-                        //intent.putExtra("text", podaci.toString())
-                        //start the second activity
-                        //start the second activity
                         startActivity(intent)
                     } else {
                         Toast.makeText(
@@ -96,11 +83,8 @@ class RegisterFragment : Fragment() {
                         ).show()
                     }
                 }
-
         }
         return binding.root
     }
-
-
 
 }
