@@ -12,11 +12,10 @@ import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    //var data: String? = ""
+    var data: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (savedInstanceState != null) {
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //data = intent.getStringExtra("text")
+        data = intent.getStringExtra("text")
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -52,16 +51,18 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             appBarConfiguration.topLevelDestinations.contains(destination.id)
-            bottomNavController(destination)
+            BottomNavController(destination)
 
             val toolbarTitle: TextView = toolbar.findViewById(R.id.toolbar_title)
             toolbarTitle.text = navController.currentDestination?.label.toString()
         }
 
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        sendData()
     }
 
-    private fun bottomNavController(destination: NavDestination) {
+    private fun BottomNavController(destination: NavDestination) {
         when (destination.id) {
             R.id.nav_home -> showBottomNav()
             R.id.appointmentFragment -> showBottomNav()
@@ -88,6 +89,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    fun sendData(): String? {
+        return data
+    }
+
 
     override fun onBackPressed() {
 

@@ -1,7 +1,6 @@
 package com.example.cvacc
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,42 +23,37 @@ class NotEligibleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentNotEligibleBinding.inflate(inflater)
         binding.cVaccNotEligible = this
         return binding.root
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         mAuth = FirebaseAuth.getInstance()
+
         firestore = FirebaseFirestore.getInstance()
         userId = mAuth.currentUser.uid
-
         val docRef = firestore.collection("users").document(userId)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     answers.add(document.data.toString())
-                    val odg : TextView = binding.apptFailQuestions
+                    val odg: TextView = binding.apptFailQuestions
                     odg.text = document.getString("name")
-                    Log.d("alla", "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d("TAG", "No such document")
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.d("TAG", "get failed with ", exception)
-            }
+
         docRef.update("appointment-scheduled", "No")
         val args = NotEligibleFragmentArgs.fromBundle(requireArguments())
         val activity: MainActivity = activity as MainActivity
         answers.addAll(args.sazetak)
         answers.add(activity.sendData().toString())
 
-        val back = binding.apptFailBackBtn
+        val backBtn = binding.apptFailBackBtn
 
-        back.setOnClickListener {
+        backBtn.setOnClickListener {
             val action = NotEligibleFragmentDirections.actionNotEligibleFragmentToNavHome()
             findNavController().navigate(action)
         }
