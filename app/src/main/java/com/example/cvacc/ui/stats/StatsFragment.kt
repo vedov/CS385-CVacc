@@ -62,7 +62,7 @@ class StatsFragment : Fragment() {
             vaccines.add(PieEntry((pfizerCounter.toFloat()/4)*100, "Pfizer"))
             vaccines.add(PieEntry((modernaCounter.toFloat()/4)*100, "Moderna"))
             vaccines.add(PieEntry((astrazeCounter.toFloat()/4)*100, "Astra Zeneca"))
-            vaccines.add(PieEntry((sputnikCounter.toFloat()*4)*100, "Sputnik IV"))
+            vaccines.add(PieEntry((sputnikCounter.toFloat()/4)*100, "Sputnik IV"))
             val set = PieDataSet(vaccines,"Vaccines")
 
             set.setColors(
