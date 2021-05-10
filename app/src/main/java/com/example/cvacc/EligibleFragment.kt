@@ -16,7 +16,8 @@ class EligibleFragment : Fragment() {
     lateinit var mAuth: FirebaseAuth;
     lateinit var firestore: FirebaseFirestore
     lateinit var userId: String
-    var answers: String = ""
+    var vaccineName: String = ""
+    var priorityFlag = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,16 +63,22 @@ class EligibleFragment : Fragment() {
         userId = mAuth.currentUser.uid
 
         val args = EligibleFragmentArgs.fromBundle(requireArguments())
-        answers=args.vaccine
+        vaccineName=args.vaccineName
+        priorityFlag=args.priorityFlag
 
         val docRef = firestore.collection("users").document(userId)
-        docRef.update("vaccine", answers)
+        docRef.update("vaccine", vaccineName)
 
         val date = Date()
         val format = SimpleDateFormat("dd/M/yyyy")
         val calendar = Calendar.getInstance()
         calendar.time = format.parse(format.format(date))
-        calendar.add(Calendar.DATE, 14)
+        if(priorityFlag==true){
+            calendar.add(Calendar.DATE, 7)
+        }
+        else {
+            calendar.add(Calendar.DATE, 14)
+        }
 
         docRef.update("appointment-date",format.format(calendar.time))
         docRef.update("appointment-scheduled", "Yes")

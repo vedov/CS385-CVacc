@@ -83,10 +83,13 @@
         android:label=""
         tools:layout="@layout/fragment_eligible">
         <argument
-            android:name="vaccine"
+            android:name="vaccineName"
             app:argType="string" />
         <action
             android:id="@+id/action_eligibleFragment_to_nav_home"
             app:destination="@id/nav_home" />
+        <argument
+            android:name="priorityFlag"
+            app:argType="boolean" />
     </fragment>
 </navigation>
