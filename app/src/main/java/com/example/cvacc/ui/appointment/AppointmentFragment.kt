@@ -38,7 +38,7 @@ class AppointmentFragment : Fragment() {
                 if (document != null) {
                     if (document.getString("appointment-scheduled").equals("No")) {
                         binding.noteligibleLayout.visibility = View.VISIBLE
-                        binding.noteligibletext.text = "Ne moze"
+                        binding.apptNoteligibleText.text = "You do not have an appointment yet."
                     } else {
                         binding.eligibleLayout.visibility = View.VISIBLE
                         binding.apptName.text = document.getString("name")

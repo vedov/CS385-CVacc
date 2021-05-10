@@ -52,7 +52,7 @@
     <string name="menu_stats">Stats</string>
     <string name="share_btn">Share</string>
     <string name="drawer_info">Info</string>
-    <string name="appt_title">Below you can see information about your scheduled appointment.</string>
+    <string name="appt_title">Below you can see information about your scheduled appointment. Be sure to bring your ID with you to your appointment</string>
     <string name="info_title">CVacc</string>
     <string name="info_created">CREATED BY</string>
     <string name="info_creators">Vedad Vreto, Dino-Sven Dedić</string>
@@ -63,4 +63,6 @@
     <string name="info_tag_two_desc_two">You may have side effects after vaccination, but these are normal.</string>
     <string name="info_tag_two_desc_three">It typically takes two weeks after vaccination for the body to build protection (immunity) against the virus that causes COVID-19. You are not fully vaccinated until 2 weeks after the 2nd dose of a two-dose vaccine or two weeks after a one-dose vaccine.</string>
     <string name="info_tag_two_desc_four">Use this app so you can easily schedule an appointment and help us lower the spread of COVID-19</string>
+    <string name="blank_text" />
+    <string name="appt_noteligible_text">You do not have an appointment yet.</string>
 </resources>

@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.carlosmuvi.segmentedprogressbar.SegmentedProgressBar
 import com.example.cvacc.databinding.FragmentQuestionBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 class QuestionFragment : Fragment() {
 
@@ -18,6 +21,9 @@ class QuestionFragment : Fragment() {
     var notEligibleQuestions: MutableList<Question> = mutableListOf()
     var questionIndex: Int = 0
     var vaccineName = ""
+    lateinit var mAuth: FirebaseAuth;
+    lateinit var firestore: FirebaseFirestore
+    lateinit var userId: String
     private var badAnswersList: MutableList<String> = mutableListOf()
     private var choosenAnswersList: MutableList<String> = mutableListOf()
     private var questions = arrayListOf<Question>(
@@ -35,14 +41,14 @@ class QuestionFragment : Fragment() {
         Question(
             "Do you have a history of severe allergic reaction to any component " +
                     "of the vaccine?",
-            "To view the components of the vaccine, click here.",
+            "To view the components of the vaccine visit who.int/vaccines",
             false, false
         ),
 
         Question(
             "Are you pregnant or breastfeeding?",
             "Pregnant women are at higher risk of severe COVID-19 than non-pregnant women," +
-                    " and COVID-19 has been associated with an increased risk of pre-term birth." +
+                    " and COVID-19 has been associated with an increased risk of pre-term birth. " +
                     "However due to insufficient data, WHO does not recommend the vaccination of " +
                     "pregnant women at this time.",
             false, false
@@ -58,22 +64,22 @@ class QuestionFragment : Fragment() {
 
         Question(
             "Are you working in a medical field?",
-            "Such as nanananannanana", true, true
+            "", true, true
         ),
 
         Question(
             "Do you have any chronic ilnesses?",
-            "Such as nananannana", true, true
+            "Such as Cancer, Chronic Lung Diseases,"+
+                    " Dementia or other neurological conditions, HIV, Heart Conditions, etc.", true, true
         ),
 
         Question(
             "Do you work or reside in Elderly Care? ",
-            "nanannana", true, true
+            "", true, true
         ),
 
         Question(
-            "Choose vakcinu  ",
-            "nanannana"
+            "Choose a vaccine you would like to be vaccinated with.",
         ),
     )
 
@@ -118,6 +124,14 @@ class QuestionFragment : Fragment() {
         segmentedProgressBar.setFillColor(Color.parseColor("#0B72C1"));
         segmentedProgressBar.playSegment(500);
         segmentedProgressBar.setCompletedSegments(questionIndex);
+
+
+        mAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+        userId = mAuth.currentUser.uid
+
+        val docRef = firestore.collection("users").document(userId)
+        checkUserAge(docRef)
 
         yesBtn.setOnClickListener {
             choosenAnswersList.add(yesBtn.text.toString())
@@ -216,6 +230,24 @@ class QuestionFragment : Fragment() {
                 findNavController().navigate(actionE)
             }
         }
+    }
+
+    private fun checkUserAge(docRef : DocumentReference){
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val userAge = document.getString("age")
+                    if (userAge != null) {
+                        if (userAge.toInt()<18) {
+                            badAnswersList.add("You are under the age of 18")
+                            badAnswersList.add("")
+                        } else if(userAge.toInt()>=65){
+                            priorityFlag = true
+                        }
+                        else {}
+                    }
+                }
+            }
     }
 }
 

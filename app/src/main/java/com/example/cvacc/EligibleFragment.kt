@@ -18,6 +18,8 @@ class EligibleFragment : Fragment() {
     lateinit var userId: String
     var vaccineName: String = ""
     var priorityFlag = false
+    val dateFormat = SimpleDateFormat("dd/M/yyyy")
+    val calendar = Calendar.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,12 +35,23 @@ class EligibleFragment : Fragment() {
     private fun getShareIntent() : Intent {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain")
-            .putExtra(Intent.EXTRA_TEXT, "OPAA")
+            .putExtra(Intent.EXTRA_TEXT, "I've registered to take the "+vaccineName+" vaccine! My appointment is on the: "+dateFormat.format(calendar.time))
         return shareIntent
     }
 
     private fun shareSuccess() {
         startActivity(getShareIntent())
+    }
+
+    private fun setDate(){
+        val date = Date()
+        calendar.time = dateFormat.parse(dateFormat.format(date))
+        if(priorityFlag==true){
+            calendar.add(Calendar.DATE, 7)
+        }
+        else {
+            calendar.add(Calendar.DATE, 14)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -48,6 +61,7 @@ class EligibleFragment : Fragment() {
             menu.findItem(R.id.share).isVisible = false
         }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -68,19 +82,8 @@ class EligibleFragment : Fragment() {
 
         val docRef = firestore.collection("users").document(userId)
         docRef.update("vaccine", vaccineName)
-
-        val date = Date()
-        val format = SimpleDateFormat("dd/M/yyyy")
-        val calendar = Calendar.getInstance()
-        calendar.time = format.parse(format.format(date))
-        if(priorityFlag==true){
-            calendar.add(Calendar.DATE, 7)
-        }
-        else {
-            calendar.add(Calendar.DATE, 14)
-        }
-
-        docRef.update("appointment-date",format.format(calendar.time))
+        setDate()
+        docRef.update("appointment-date",dateFormat.format(calendar.time))
         docRef.update("appointment-scheduled", "Yes")
 
         val finishBtn = binding.apptSuccessFinishBtn

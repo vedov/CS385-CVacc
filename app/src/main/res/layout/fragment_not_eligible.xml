@@ -28,6 +28,7 @@
                 android:layout_marginEnd="64dp"
                 android:layout_marginRight="64dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -36,10 +37,9 @@
                     android:id="@+id/appt_fail_img"
                     android:layout_width="140dp"
                     android:layout_height="137dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
                     android:layout_gravity="center|center_horizontal|center_vertical"
-                    app:srcCompat="@drawable/ic_noappointment" />
+                    app:srcCompat="@drawable/ic_noappointment"
+                    android:contentDescription="@string/blank_text" />
 
                 <TextView
                     android:id="@+id/appt_fail_title"
@@ -60,37 +60,51 @@
                     android:id="@+id/appt_fail_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/appt_fail_desc"
                     android:textSize="18sp" />
 
-                <ScrollView
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="167dp">
+                    android:layout_height="match_parent">
 
-                    <LinearLayout
+                    <Button
+                        android:id="@+id/appt_fail_back_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginBottom="32dp"
+                        android:padding="16dp"
+                        android:text="@string/appt_fail_back_btn"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/blue_500"
+                        app:cornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/scrollView2" />
 
-                        <TextView
-                            android:id="@+id/appt_fail_questions"
+                    <ScrollView
+                        android:id="@+id/scrollView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="8dp"
+                        android:clipToPadding="true"
+                        android:fillViewport="false"
+                        app:layout_constraintBottom_toTopOf="@id/appt_fail_back_btn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:id="@+id/appt_fail_linearlayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@{CVaccNotEligible.answers.toString()}" />
-                    </LinearLayout>
-                </ScrollView>
+                            android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/appt_fail_back_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
-                    android:text="@string/appt_fail_back_btn"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/blue_500"
-                    app:cornerRadius="10dp" />
+                        </LinearLayout>
+                    </ScrollView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

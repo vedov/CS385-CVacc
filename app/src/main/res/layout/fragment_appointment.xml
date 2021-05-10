@@ -16,7 +16,7 @@
             android:id="@+id/eligibleLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/appt_name"
@@ -136,7 +136,7 @@
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/noteligibletext"
+                android:id="@+id/appt_noteligible_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -145,7 +145,7 @@
                 android:layout_marginRight="32dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal"
-                android:text="You do not have an appointment yet."
+                android:text="@string/appt_noteligible_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/gray_200"
                 android:textSize="30sp"

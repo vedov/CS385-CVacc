@@ -68,7 +68,7 @@ class RegisterFragment : Fragment() {
                         val user = hashMapOf<String, Any?>()
                         user.put("name", name.text.toString())
                         user.put("email", email.text.toString())
-                        user.put("dob", age.text.toString())
+                        user.put("age", age.text.toString())
                         docRef.set(user)
 
                         Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT)

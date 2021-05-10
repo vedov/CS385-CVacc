@@ -49,8 +49,7 @@
                     android:textColor="@color/gray_100"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    android:typeface="sans"
-                    />
+                    android:typeface="sans" />
 
                 <TextView
                     android:id="@+id/question_desc"
@@ -60,8 +59,8 @@
                     android:layout_centerVertical="true"
                     android:layout_gravity="center|center_horizontal|center_vertical"
                     android:layout_marginTop="16dp"
-                    android:justificationMode="inter_word"
                     android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:justificationMode="inter_word"
                     android:text="@{CVaccQuestions.currentQuestion.description}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/gray_400"
@@ -81,8 +80,9 @@
                     android:textAllCaps="true"
                     android:textSize="14sp"
                     android:visibility="visible"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="10dp"
-                    app:strokeColor="#039BE5"
+                    app:strokeColor="@color/blue_700"
                     app:strokeWidth="1.5dp" />
 
                 <Button
@@ -98,37 +98,83 @@
                     android:textAllCaps="true"
                     android:textSize="14sp"
                     android:visibility="visible"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="10dp"
-                    app:strokeColor="#039BE5"
+                    app:strokeColor="@color/blue_700"
                     app:strokeWidth="1.5dp" />
 
                 <Button
                     android:id="@+id/question_pfizer_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginTop="8dp"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:padding="16dp"
                     android:text="@string/question_pfizer_btn"
-                    android:visibility="gone" />
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/blue_700"
+                    app:strokeWidth="1.5dp" />
 
                 <Button
                     android:id="@+id/question_moderna_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:padding="16dp"
                     android:text="@string/question_moderna_btn"
-                    android:visibility="gone" />
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/blue_700"
+                    app:strokeWidth="1.5dp" />
 
                 <Button
                     android:id="@+id/question_astraze_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:padding="16dp"
                     android:text="@string/question_astraze_btn"
-                    android:visibility="gone" />
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/blue_700"
+                    app:strokeWidth="1.5dp" />
 
                 <Button
                     android:id="@+id/question_sputnik_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:foregroundGravity="center_vertical|center|center_horizontal"
+                    android:padding="16dp"
                     android:text="@string/question_sputnik_btn"
-                    android:visibility="gone" />
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/blue_700"
+                    app:strokeWidth="1.5dp" />
 
             </LinearLayout>
 
