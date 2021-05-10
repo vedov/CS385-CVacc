@@ -34,14 +34,14 @@ class ProfileFragment : Fragment() {
 
         firestore = FirebaseFirestore.getInstance()
         userId = mAuth.currentUser.uid
-        val logout = binding.logout
+        val logout = binding.profileLogoutBtn
         val docRef = firestore.collection("users").document(userId)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    val name : TextView = binding.name
-                    val mail: TextView = binding.email
-                    val age: TextView = binding.age
+                    val name : TextView = binding.profileName
+                    val mail: TextView = binding.profileEmail
+                    val age: TextView = binding.profileAge
                     name.text = document.getString("name")
                     mail.text = document.getString("email")
                     age.text = document.getString("dob")

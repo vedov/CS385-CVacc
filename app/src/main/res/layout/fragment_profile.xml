@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/profile_name_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -23,7 +23,7 @@
             android:layout_marginRight="32dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:text="Your Profile"
+            android:text="@string/profile_name_title"
             android:textColor="@color/gray_100"
             android:textSize="14sp"
             android:textStyle="normal"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/profile_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
@@ -43,7 +43,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView8" />
+            app:layout_constraintTop_toBottomOf="@id/profile_name_title" />
 
         <RelativeLayout
             android:id="@+id/top"
@@ -59,7 +59,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name">
+            app:layout_constraintTop_toBottomOf="@+id/profile_name">
 
             <LinearLayout
                 android:id="@+id/left_layout"
@@ -70,18 +70,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/emailtitle"
+                    android:id="@+id/profile_email_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:text="Email"
+                    android:text="@string/profile_email_title"
                     android:textColor="@color/gray_100"
                     android:textSize="18sp"
                     android:textStyle="normal" />
 
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/profile_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
@@ -109,18 +109,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/agetitle"
+                    android:id="@+id/profile_age_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:text="Age"
+                    android:text="@string/profile_age_title"
                     android:textColor="@color/gray_100"
                     android:textSize="18sp"
                     android:textStyle="normal" />
 
                 <TextView
-                    android:id="@+id/age"
+                    android:id="@+id/profile_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
@@ -134,10 +134,10 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/logout"
+            android:id="@+id/profile_logout_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log Out"
+            android:text="@string/profile_logout_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,6 @@
 package com.example.cvacc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -12,11 +13,18 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityWelcomeBinding
     private lateinit var navController: NavController
-    private lateinit var mAuth:FirebaseAuth;
+    private lateinit var auth:FirebaseAuth;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
+        auth = FirebaseAuth.getInstance();
 
+        if (auth.getCurrentUser() != null) {
+            // User is signed in (getCurrentUser() will be null if not signed in)
+            val intent = Intent(this, MainActivity::class.java);
+            startActivity(intent);
+            finish();
+        }
 
         //binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome)
 

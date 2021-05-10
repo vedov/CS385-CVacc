@@ -19,23 +19,40 @@
         android:id="@+id/appointmentFragment"
         android:name="com.example.cvacc.ui.appointment.AppointmentFragment"
         android:label="My Appointment"
-        tools:layout="@layout/fragment_appointment" />
+        tools:layout="@layout/fragment_appointment" >
+        <action
+            android:id="@+id/action_appointmentFragment_to_nav_home"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.example.cvacc.ui.stats.StatsFragment"
         android:label="Statistics"
-        tools:layout="@layout/fragment_stats" />
+        tools:layout="@layout/fragment_stats" >
+        <action
+            android:id="@+id/action_statsFragment_to_nav_home"
+             />
+        <action
+            android:id="@+id/action_statsFragment_to_nav_home2"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.cvacc.InfoFragment"
         android:label="Info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_nav_home"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.cvacc.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action android:id="@+id/action_profileFragment_to_nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.cvacc.QuestionFragment"
@@ -56,6 +73,9 @@
         <argument
             android:name="sazetak"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_notEligibleFragment_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
     <fragment
         android:id="@+id/eligibleFragment"
@@ -65,5 +85,8 @@
         <argument
             android:name="vaccine"
             app:argType="string" />
+        <action
+            android:id="@+id/action_eligibleFragment_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
 </navigation>

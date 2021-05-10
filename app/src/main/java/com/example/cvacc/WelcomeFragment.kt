@@ -32,10 +32,10 @@ class WelcomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentWelcomeBinding>(inflater,
             R.layout.fragment_welcome, container, false)
         activity?.window?.statusBarColor = resources.getColor(R.color.blue_500)
-        var login = binding.btnlogin
-        var register = binding.btnregister
-        var email = binding.loginemail
-        var password = binding.loginpassword
+        var login = binding.welcomeLoginBtn
+        var register = binding.welcomeRegisterBtn
+        var email = binding.welcomeEmail
+        var password = binding.welcomePw
         mAuth = FirebaseAuth.getInstance()
         login.setOnClickListener { view : View ->
             //val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment()
@@ -58,6 +58,7 @@ class WelcomeFragment : Fragment() {
                     //intent.putExtra("text", podaci.toString())
                     //start the second activity
                     //start the second activity
+
                     startActivity(intent)
                 }
                 else {

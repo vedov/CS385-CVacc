@@ -7,7 +7,7 @@
     tools:context=".ui.stats.StatsFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/stats_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="false"
@@ -18,7 +18,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Chosen Vaccines"
+        android:text="@string/stats_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/gray_100"
         android:textSize="30sp"
@@ -42,5 +42,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/stats_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

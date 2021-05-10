@@ -30,24 +30,17 @@ class RegisterFragment : Fragment() {
             R.layout.fragment_register, container, false
         )
 
-        val register = binding.register
-        val name = binding.name
-        val email = binding.email
-        val password = binding.password
-        val confirm = binding.confirmpassword
-        val dob = binding.dob
+        val register = binding.registerBtn
+        val name = binding.registerName
+        val email = binding.registerEmail
+        val password = binding.registerPw
+        val confirm = binding.registerConfirmPw
+        val age = binding.registerAge
 
         mAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
         register.setOnClickListener {
-            /* podaci.add(name.toString())
-             podaci.add(email.toString())
-             podaci.add(phone.toString())
-             podaci.add(password.toString())
-             podaci.add(confirm.toString())
-             Log.d("a", podaci.toString())*/
-
 
             if (email.text.toString().isEmpty()) {
                 email.setError("Please enter your email.")
@@ -63,8 +56,8 @@ class RegisterFragment : Fragment() {
             ) {
                 confirm.setError("Passwords don't match.")
                 return@setOnClickListener
-            } else if (dob.text.toString().isEmpty()) {
-                dob.setError("Please enter your password.")
+            } else if (age.text.toString().isEmpty()) {
+                age.setError("Please enter your password.")
                 return@setOnClickListener
             }
 
@@ -77,7 +70,7 @@ class RegisterFragment : Fragment() {
                         val user = hashMapOf<String, Any?>()
                         user.put("name", name.text.toString())
                         user.put("email", email.text.toString())
-                        user.put("dob", dob.text.toString())
+                        user.put("dob", age.text.toString())
                         docRef.set(user)
 
 

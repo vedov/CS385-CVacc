@@ -101,12 +101,12 @@ class QuestionFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        var yes = binding.button2
-        var no = binding.button3
-        var pfizer = binding.button4
-        var moderna = binding.button5
-        var astraZe = binding.button6
-        var sputnik = binding.button7
+        var yes = binding.questionYesBtn
+        var no = binding.questionNoBtn
+        var pfizer = binding.questionPfizerBtn
+        var moderna = binding.questionModernaBtn
+        var astraZe = binding.questionAstrazeBtn
+        var sputnik = binding.questionSputnikBtn
 
 
         var segmentedProgressBar: SegmentedProgressBar = binding.segmentedProgressbar
@@ -187,12 +187,12 @@ class QuestionFragment : Fragment() {
     private fun showButtons() {
         if(questionIndex == questions.size - 1){
             Log.d("broj",questionIndex.toString())
-            var pfizer = binding.button4
-            var moderna = binding.button5
-            var astraZe = binding.button6
-            var sputnik = binding.button7
-            var yes = binding.button2
-            var no = binding.button3
+            var pfizer = binding.questionPfizerBtn
+            var moderna = binding.questionModernaBtn
+            var astraZe = binding.questionAstrazeBtn
+            var sputnik = binding.questionSputnikBtn
+            var yes = binding.questionYesBtn
+            var no = binding.questionNoBtn
             pfizer.visibility = View.VISIBLE
             moderna.visibility = View.VISIBLE
             astraZe.visibility = View.VISIBLE

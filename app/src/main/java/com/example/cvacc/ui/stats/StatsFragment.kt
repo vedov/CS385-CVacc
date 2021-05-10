@@ -1,8 +1,6 @@
 package com.example.cvacc.ui.stats
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,15 +20,16 @@ import kotlin.concurrent.schedule
 
 class StatsFragment : Fragment() {
 
-    private lateinit var statsViewModel: StatsViewModel
     lateinit var binding: FragmentStatsBinding
     lateinit var mAuth: FirebaseAuth;
     lateinit var firestore: FirebaseFirestore
     lateinit var userId: String
-    var pfizercounter = 0
-    var modernacounter = 0
-    var sputnikcounter = 0
-    var astracounter = 0
+    var pfizerCounter = 0
+    var modernaCounter = 0
+    var sputnikCounter = 0
+    var astrazeCounter = 0
+    val vaccines: ArrayList<PieEntry> = ArrayList()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,60 +41,49 @@ class StatsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         val chart: PieChart = binding.chart
         mAuth = FirebaseAuth.getInstance()
-
         firestore = FirebaseFirestore.getInstance()
         userId = mAuth.currentUser.uid
-        val hours: ArrayList<PieEntry> = ArrayList()
+
 
         val docRef = firestore.collection("users")
-        val pfizerquery = docRef.whereEqualTo("vaccine", "Pfizer")
-        val modernaquery = docRef.whereEqualTo("vaccine", "Moderna")
-        val sputnikquery = docRef.whereEqualTo("vaccine", "Sputnik IV")
-        val astraquery = docRef.whereEqualTo("vaccine", "Astra Zeneca")
+        val pfizerQuery = docRef.whereEqualTo("vaccine", "Pfizer")
+        val modernaQuery = docRef.whereEqualTo("vaccine", "Moderna")
+        val sputnikQuery = docRef.whereEqualTo("vaccine", "Sputnik IV")
+        val astrazeQuery = docRef.whereEqualTo("vaccine", "Astra Zeneca")
 
-        pfizerquery.get().addOnSuccessListener { documents ->
+        pfizerQuery.get().addOnSuccessListener { documents ->
             for (document in documents) {
-                //Log.d("ccc", "${document.id} => ${document.data}")
-                    var count = 0
-                count++
-                pfizercounter += 1
-
-            }
-
-        }
-
-        modernaquery.get().addOnSuccessListener { documents ->
-            for (document in documents) {
-                //Log.d("ccc", "${document.id} => ${document.data}")
-                modernacounter += 1
-
+                pfizerCounter++
             }
         }
 
-        sputnikquery.get().addOnSuccessListener { documents ->
+        modernaQuery.get().addOnSuccessListener { documents ->
             for (document in documents) {
-                //Log.d("ccc", "${document.id} => ${document.data}")
-                sputnikcounter += 1
-
-            }
-        }
-        astraquery.get().addOnSuccessListener { documents ->
-            for (document in documents) {
-                //Log.d("ccc", "${document.id} => ${document.data}")
-                astracounter += 1
-
+                modernaCounter++
             }
         }
 
-        Timer("Getting data...", false).schedule(1000){
-            Log.d("ccc", pfizercounter.toString())
-            hours.add(PieEntry(pfizercounter.toFloat(), "Pfizer"))
-            hours.add(PieEntry(modernacounter.toFloat(), "Moderna"))
-            hours.add(PieEntry(astracounter.toFloat(), "Astra Zeneca"))
-            hours.add(PieEntry(sputnikcounter.toFloat(), "Sputnik IV"))
-            val set = PieDataSet(hours, "Vaccine Popularity")
+        sputnikQuery.get().addOnSuccessListener { documents ->
+            for (document in documents) {
+                sputnikCounter++
+            }
+        }
+
+        astrazeQuery.get().addOnSuccessListener { documents ->
+            for (document in documents) {
+                astrazeCounter++
+            }
+        }
+
+        Timer("Getting data...", false).schedule(1000) {
+            vaccines.add(PieEntry(pfizerCounter.toFloat(), "Pfizer"))
+            vaccines.add(PieEntry(modernaCounter.toFloat(), "Moderna"))
+            vaccines.add(PieEntry(astrazeCounter.toFloat(), "Astra Zeneca"))
+            vaccines.add(PieEntry(sputnikCounter.toFloat(), "Sputnik IV"))
+            val set = PieDataSet(vaccines, "Vaccine Popularity")
 
             set.setColors(
                 intArrayOf(R.color.blue_500, R.color.blue_900, R.color.gray_900, R.color.blue_400),
@@ -105,8 +93,5 @@ class StatsFragment : Fragment() {
             chart.setData(data)
             chart.invalidate()
         }
-
-
     }
-
 }

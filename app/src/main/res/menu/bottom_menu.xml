@@ -4,7 +4,7 @@
         <item
             android:id="@+id/appointmentFragment"
             android:icon="@drawable/appointment"
-            android:title="MyAppointment" />
+            android:title="@string/menu_appt" />
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
@@ -12,6 +12,6 @@
         <item
             android:id="@+id/statsFragment"
             android:icon="@drawable/bar_chart"
-            android:title="Stats" />
+            android:title="@string/menu_stats" />
     </group>
 </menu>

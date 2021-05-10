@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +10,7 @@
         tools:context=".ui.home.HomeFragment">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/home_image"
             android:layout_width="142dp"
             android:layout_height="127dp"
             android:layout_marginStart="32dp"
@@ -22,8 +18,7 @@
             android:layout_marginTop="64dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:contentDescription="TODO"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintBottom_toTopOf="@+id/home_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +27,7 @@
             app:tint="@color/blue_500" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/home_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -41,7 +36,7 @@
             android:layout_marginRight="32dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_horizontal"
-            android:text="Set up an Appointment"
+            android:text="@string/home_title"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/gray_100"
@@ -49,13 +44,13 @@
             android:textStyle="bold"
             android:typeface="normal"
 
-            app:layout_constraintBottom_toTopOf="@+id/text_home"
+            app:layout_constraintBottom_toTopOf="@+id/home_desc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/home_image" />
 
         <TextView
-            android:id="@+id/text_home"
+            android:id="@+id/home_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -64,18 +59,18 @@
             android:layout_marginRight="32dp"
             android:gravity="center_horizontal"
             android:justificationMode="inter_word"
-            android:text="See if you're eligible to take the COVID19 Vaccine and set up an appointment at your nearest provider."
+            android:text="@string/home_desc"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/gray_400"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/registerbtn"
+            app:layout_constraintBottom_toTopOf="@+id/home_schedule_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/home_title" />
 
         <Button
-            android:id="@+id/registerbtn"
+            android:id="@+id/home_schedule_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -87,7 +82,7 @@
             android:padding="16dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:text="Button"
+            android:text="@string/home_schedule_btn"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:backgroundTint="@color/blue_500"
@@ -95,7 +90,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_home" />
+            app:layout_constraintTop_toBottomOf="@+id/home_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

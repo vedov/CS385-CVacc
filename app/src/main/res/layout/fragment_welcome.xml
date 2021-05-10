@@ -16,13 +16,13 @@
                 android:id="@+id/relativeLayout"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintBottom_toTopOf="@+id/welcome_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/welcome_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
@@ -32,7 +32,7 @@
                     app:srcCompat="@drawable/welcome_bg" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/welcome_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -52,7 +52,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/welcome_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -62,17 +62,17 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
-                android:text="Welcome to CVacc!"
+                android:text="@string/welcome_title"
                 android:textColor="@color/gray_100"
                 android:textSize="36sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                app:layout_constraintBottom_toTopOf="@+id/welcome_desc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/welcome_desc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -81,7 +81,7 @@
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
-                android:text="Sign In or Register to schedule an appointment."
+                android:text="@string/welcome_desc"
                 android:textColor="@color/gray_400"
                 android:textSize="18sp"
                 android:textStyle="normal"
@@ -112,10 +112,10 @@
                 app:startIconDrawable="@drawable/info">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginemail"
+                    android:id="@+id/welcome_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="E-mail" />
+                    android:hint="@string/welcome_email" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -141,7 +141,7 @@
                 app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginpassword"
+                    android:id="@+id/welcome_pw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -149,7 +149,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnlogin"
+                android:id="@+id/welcome_login_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -158,7 +158,7 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:padding="16dp"
-                android:text="Login"
+                android:text="@string/welcome_pw"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/blue_500"
                 app:cornerRadius="10dp"
@@ -176,10 +176,10 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
-                app:layout_constraintBottom_toTopOf="@id/btnregister"
+                app:layout_constraintBottom_toTopOf="@id/welcome_register_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnlogin">
+                app:layout_constraintTop_toBottomOf="@id/welcome_login_btn">
 
                 <View
                     android:layout_width="match_parent"
@@ -195,7 +195,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="or"
+                    android:text="@string/welcome_divider"
                     android:textColor="@color/gray_500" />
 
                 <View
@@ -208,7 +208,7 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/btnregister"
+                android:id="@+id/welcome_register_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -217,7 +217,7 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:padding="16dp"
-                android:text="REGISTER"
+                android:text="@string/welcome_register_btn"
                 app:backgroundTint="@color/white"
                 app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -12,32 +12,71 @@
         android:layout_height="match_parent"
         tools:context=".ui.appointment.AppointmentFragment">
 
-        <TextView
-            android:id="@+id/text_gallery"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/eligibleLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal" />
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
-        <TextView
-            android:id="@+id/tekstonja"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="256dp"
-            android:layout_marginRight="256dp"
-            android:layout_marginBottom="712dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/apptVaccineTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/apptLocationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/apptLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteY="403dp" />
+
+            <TextView
+                android:id="@+id/apptDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteY="383dp" />
+
+            <TextView
+                android:id="@+id/apptVaccine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                tools:layout_editor_absoluteY="567dp" />
+
+            <TextView
+                android:id="@+id/apptName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="356dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/noteligibleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/noteligibletext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

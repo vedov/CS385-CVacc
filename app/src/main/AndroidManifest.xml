@@ -12,8 +12,12 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.CVacc.NoActionBar"></activity>
-        <activity android:name=".WelcomeActivity">
+            android:theme="@style/Theme.CVacc.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".WelcomeActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

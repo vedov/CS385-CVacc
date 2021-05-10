@@ -16,13 +16,13 @@
                 android:id="@+id/relativeLayout"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintBottom_toTopOf="@+id/register_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/register_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
@@ -32,7 +32,7 @@
                     app:srcCompat="@drawable/welcome_bg" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/register_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -52,7 +52,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/register_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -62,17 +62,17 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
-                android:text="Welcome to CVacc!"
+                android:text="@string/register_title"
                 android:textColor="@color/gray_100"
                 android:textSize="36sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                app:layout_constraintBottom_toTopOf="@+id/register_desc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/register_desc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -80,7 +80,7 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:gravity="center"
-                android:text="Sign In or Register to schedule an appointment."
+                android:text="@string/register_desc"
                 android:textColor="@color/gray_400"
                 android:textSize="18sp"
                 android:textStyle="normal"
@@ -101,7 +101,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10">
+                app:layout_constraintTop_toBottomOf="@+id/register_desc">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout2"
@@ -119,10 +119,10 @@
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email"
+                        android:id="@+id/register_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="E-mail" />
+                        android:hint="@string/register_email" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -135,16 +135,15 @@
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
                     app:boxStrokeColor="@color/blue_500"
-                    app:endIconMode="password_toggle"
                     app:hintTextColor="@color/blue_500"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/dob"
+                        android:id="@+id/register_age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Date of Birth"
+                        android:hint="@string/register_age"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -164,10 +163,10 @@
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/confirmpassword"
+                        android:id="@+id/register_confirm_pw"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Confirm Password"
+                        android:hint="@string/register_confirm_pw"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -187,10 +186,10 @@
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/register_pw"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Password"
+                        android:hint="@string/register_pw"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -210,18 +209,18 @@
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/name"
+                        android:id="@+id/register_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Full Name" />
+                        android:hint="@string/register_name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/register"
+                    android:id="@+id/register_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Register"
+                    android:text="@string/register_btn"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/blue_500"
                     app:cornerRadius="10dp"

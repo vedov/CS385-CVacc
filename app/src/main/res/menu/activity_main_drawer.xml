@@ -7,10 +7,10 @@
         <item
             android:id="@+id/profileFragment"
             android:icon="@drawable/user"
-            android:title="Profile"/>
+            android:title="@string/drawer_profile"/>
         <item
             android:id="@+id/infoFragment"
             android:icon="@drawable/info"
-            android:title="Info"/>
+            android:title="@string/drawer_info" />
     </group>
 </menu>
