@@ -14,7 +14,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appt_success_title">An appointment has been scheduled.</string>
-    <string name="aptt_success_desc">OPIS</string>
+    <string name="aptt_success_desc">Go to MyAppointment and see the location and date of your vaccination.</string>
     <string name="appt_success_btn">Finish</string>
     <string name="home_title">Set up an Appointment</string>
     <string name="home_desc">See if you\'re eligible to take the COVID19 Vaccine and set up an appointment at your nearest provider.</string>
@@ -40,7 +40,7 @@
     <string name="register_pw">Password</string>
     <string name="register_name">Full Name</string>
     <string name="register_btn">Register</string>
-    <string name="stats_title">Chosen Vaccines</string>
+    <string name="stats_title">Registered Users:</string>
     <string name="welcome_title">Welcome to CVacc!</string>
     <string name="welcome_desc">Sign In or Register to schedule an appointment.</string>
     <string name="welcome_email">E-mail</string>
@@ -52,4 +52,15 @@
     <string name="menu_stats">Stats</string>
     <string name="share_btn">Share</string>
     <string name="drawer_info">Info</string>
+    <string name="appt_title">Below you can see information about your scheduled appointment.</string>
+    <string name="info_title">CVacc</string>
+    <string name="info_created">CREATED BY</string>
+    <string name="info_creators">Vedad Vreto, Dino-Sven Dedić</string>
+    <string name="info_tag_one">Vaccines For COVID-19</string>
+    <string name="info_tag_one_desc">COVID-19 vaccines are safe and effective. After you’ve been fully vaccinated, you can start to do some things that you had to stop doing because of the pandemic.</string>
+    <string name="info_tag_two">What You Need to Know</string>
+    <string name="info_tag_two_desc_one">COVID-19 vaccines are safe and effective.</string>
+    <string name="info_tag_two_desc_two">You may have side effects after vaccination, but these are normal.</string>
+    <string name="info_tag_two_desc_three">It typically takes two weeks after vaccination for the body to build protection (immunity) against the virus that causes COVID-19. You are not fully vaccinated until 2 weeks after the 2nd dose of a two-dose vaccine or two weeks after a one-dose vaccine.</string>
+    <string name="info_tag_two_desc_four">Use this app so you can easily schedule an appointment and help us lower the spread of COVID-19</string>
 </resources>

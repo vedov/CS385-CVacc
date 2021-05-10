@@ -43,8 +43,8 @@ class AppointmentFragment : Fragment() {
                         binding.eligibleLayout.visibility = View.VISIBLE
                         binding.apptName.text = document.getString("name")
                         binding.apptDate.text = document.getString("appointment-date")
-                        binding.apptVaccine.text = document.getString("vaccine")
-                        binding.apptLocation.text = "ZETRA"
+                        binding.apptVaccine.text = "Selected Vaccine: " + document.getString("vaccine")
+                        binding.apptLocation.text = "Location: Alipašina bb, Sarajevo 71000 (Juan Antonio Samaranch Olympic Hall)"
                     }
                 }
             }

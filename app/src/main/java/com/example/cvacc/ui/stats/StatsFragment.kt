@@ -1,5 +1,6 @@
 package com.example.cvacc.ui.stats
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,6 +26,7 @@ class StatsFragment : Fragment() {
     lateinit var mAuth: FirebaseAuth;
     lateinit var firestore: FirebaseFirestore
     lateinit var userId: String
+    var registeredUsers = 0
     var pfizerCounter = 0
     var modernaCounter = 0
     var sputnikCounter = 0
@@ -39,6 +42,7 @@ class StatsFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -49,10 +53,37 @@ class StatsFragment : Fragment() {
 
 
         val docRef = firestore.collection("users")
+        getChartData(docRef)
+        val statsTitle = binding.statsTitle
+
+        Timer("Getting data...", false).schedule(700) {
+
+            statsTitle.text = "Registered Users: $registeredUsers"
+            vaccines.add(PieEntry((pfizerCounter.toFloat()/4)*100, "Pfizer"))
+            vaccines.add(PieEntry((modernaCounter.toFloat()/4)*100, "Moderna"))
+            vaccines.add(PieEntry((astrazeCounter.toFloat()/4)*100, "Astra Zeneca"))
+            vaccines.add(PieEntry((sputnikCounter.toFloat()*4)/100, "Sputnik IV"))
+            val set = PieDataSet(vaccines,"Vaccines")
+
+            set.setColors(
+                intArrayOf(R.color.blue_500, R.color.blue_900, R.color.gray_900, R.color.blue_400),
+                context
+            )
+            val data = PieData(set)
+            chart.setData(data)
+            chart.invalidate()
+        }
+    }
+    fun getChartData(docRef: CollectionReference){
         val pfizerQuery = docRef.whereEqualTo("vaccine", "Pfizer")
         val modernaQuery = docRef.whereEqualTo("vaccine", "Moderna")
         val sputnikQuery = docRef.whereEqualTo("vaccine", "Sputnik IV")
         val astrazeQuery = docRef.whereEqualTo("vaccine", "Astra Zeneca")
+        docRef.get().addOnSuccessListener { documents ->
+            for(document in documents){
+                registeredUsers++
+            }
+        }
 
         pfizerQuery.get().addOnSuccessListener { documents ->
             for (document in documents) {
@@ -76,22 +107,6 @@ class StatsFragment : Fragment() {
             for (document in documents) {
                 astrazeCounter++
             }
-        }
-
-        Timer("Getting data...", false).schedule(1000) {
-            vaccines.add(PieEntry(pfizerCounter.toFloat(), "Pfizer"))
-            vaccines.add(PieEntry(modernaCounter.toFloat(), "Moderna"))
-            vaccines.add(PieEntry(astrazeCounter.toFloat(), "Astra Zeneca"))
-            vaccines.add(PieEntry(sputnikCounter.toFloat(), "Sputnik IV"))
-            val set = PieDataSet(vaccines, "Vaccine Popularity")
-
-            set.setColors(
-                intArrayOf(R.color.blue_500, R.color.blue_900, R.color.gray_900, R.color.blue_400),
-                context
-            )
-            val data = PieData(set)
-            chart.setData(data)
-            chart.invalidate()
         }
     }
 }
