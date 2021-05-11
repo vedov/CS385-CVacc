@@ -1,18 +1,15 @@
 <resources>
-    <string name="app_name">CVacc</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name" translatable="false">CVacc</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings" translatable="false">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="appt_success_title">An appointment has been scheduled.</string>
     <string name="aptt_success_desc">Go to MyAppointment and see the location and date of your vaccination.</string>
     <string name="appt_success_btn">Finish</string>
@@ -23,18 +20,18 @@
     <string name="appt_fail_desc">Due to your answers for the quesitons below, you are not eligible for taking the COVID-19 vaccine.</string>
     <string name="appt_fail_back_btn">Back to home screen</string>
     <string name="profile_name_title">Your Profile</string>
-    <string name="profile_email_title">Email</string>
+    <string name="profile_email_title" translatable="false">Email</string>
     <string name="profile_age_title">Age</string>
     <string name="profile_logout_btn">Log Out</string>
     <string name="question_yes_btn">Yes</string>
     <string name="question_no_btn">No</string>
-    <string name="question_pfizer_btn">Pfizer</string>
-    <string name="question_moderna_btn">Moderna</string>
-    <string name="question_astraze_btn">Astra Zeneca</string>
-    <string name="question_sputnik_btn">Sputnik IV</string>
+    <string name="question_pfizer_btn" translatable="false">Pfizer</string>
+    <string name="question_moderna_btn" translatable="false">Moderna</string>
+    <string name="question_astraze_btn" translatable="false">Astra Zeneca</string>
+    <string name="question_sputnik_btn" translatable="false">Sputnik IV</string>
     <string name="register_title">Welcome to CVacc!</string>
     <string name="register_desc">Sign In or Register to schedule an appointment.</string>
-    <string name="register_email">E-mail</string>
+    <string name="register_email" translatable="false">E-mail</string>
     <string name="register_age">Age</string>
     <string name="register_confirm_pw">Confirm Password</string>
     <string name="register_pw">Password</string>
@@ -43,8 +40,8 @@
     <string name="stats_title">Registered Users:</string>
     <string name="welcome_title">Welcome to CVacc!</string>
     <string name="welcome_desc">Sign In or Register to schedule an appointment.</string>
-    <string name="welcome_email">E-mail</string>
-    <string name="welcome_pw">Login</string>
+    <string name="welcome_email" translatable="false">E-mail</string>
+    <string name="welcome_login_btn">Login</string>
     <string name="welcome_register_btn">REGISTER</string>
     <string name="welcome_divider">or</string>
     <string name="drawer_profile">Profile</string>
@@ -53,9 +50,9 @@
     <string name="share_btn">Share</string>
     <string name="drawer_info">Info</string>
     <string name="appt_title">Below you can see information about your scheduled appointment. Be sure to bring your ID with you to your appointment</string>
-    <string name="info_title">CVacc</string>
+    <string name="info_title" translatable="false">CVacc</string>
     <string name="info_created">CREATED BY</string>
-    <string name="info_creators">Vedad Vreto, Dino-Sven Dedić</string>
+    <string name="info_creators" translatable="false">Vedad Vreto, Dino-Sven Dedić</string>
     <string name="info_tag_one">Vaccines For COVID-19</string>
     <string name="info_tag_one_desc">COVID-19 vaccines are safe and effective. After you’ve been fully vaccinated, you can start to do some things that you had to stop doing because of the pandemic.</string>
     <string name="info_tag_two">What You Need to Know</string>
@@ -63,6 +60,39 @@
     <string name="info_tag_two_desc_two">You may have side effects after vaccination, but these are normal.</string>
     <string name="info_tag_two_desc_three">It typically takes two weeks after vaccination for the body to build protection (immunity) against the virus that causes COVID-19. You are not fully vaccinated until 2 weeks after the 2nd dose of a two-dose vaccine or two weeks after a one-dose vaccine.</string>
     <string name="info_tag_two_desc_four">Use this app so you can easily schedule an appointment and help us lower the spread of COVID-19</string>
-    <string name="blank_text" />
+    <string name="blank_text" translatable="false" />
     <string name="appt_noteligible_text">You do not have an appointment yet.</string>
+    <string name="email_error">Please enter your email.</string>
+    <string name="pw_error">Please enter your password.</string>
+    <string name="name_error">Please enter your name.</string>
+    <string name="pw_error_2">Passwords don\'t match</string>
+    <string name="age_error">Please enter your age.</string>
+    <string name="register_toast_success">Registration successful!</string>
+    <string name="register_toast_fail">Registration failed, please try again!</string>
+    <string name="welcome_error_toast">Login failed,please try again!</string>
+    <string name="age_error_2">You are under the age of 18</string>
+    <string name="question_0_title">Are you a citizen of Bosnia &amp; Herzegovina?</string>
+    <string name="question_1_title">Do you have COVID-19?</string>
+    <string name="question_2_title">Did you have COVID-19 in the last 6 months?</string>
+    <string name="question_2_desc">Individuals may wish to defer their own COVID-19 vaccination for up to 6 months from the time of SARS-CoV-2 infection. As more data becomes available on duration of immunity after infection, this time period may be adjusted.</string>
+    <string name="question_3_title">Do you have a history of severe allergic reaction to any component of the vaccine?</string>
+    <string name="question_3_desc">To view the components of the vaccine visit who.int/vaccines</string>
+    <string name="question_4_title">Are you pregnant or breastfeeding?</string>
+    <string name="question_4_desc">Pregnant women are at higher risk of severe COVID-19 than non-pregnant women, and COVID-19 has been associated with an increased risk of pre-term birth. However due to insufficient data, WHO does not recommend the vaccination of pregnant women at this time.</string>
+    <string name="question_5_title">Do you have any of the listed medical conditions?</string>
+    <string name="question_5_desc">This includes hypertension, diabetes, asthma, pulmonary, liver or kidney disease, as well as chronic infections that are stable and controlled.</string>
+    <string name="question_6_title">Are you working in a medical field?</string>
+    <string name="question_7_title">Do you have any chronic ilnesses?</string>
+    <string name="question_7_desc">Such as Cancer, Chronic Lung Diseases, Dementia or other neurological conditions, HIV, Heart Conditions, etc.</string>
+    <string name="question_8_title">Do you work or reside in Elderly Care?</string>
+    <string name="question_9_title">Choose a vaccine you would like to be vaccinated with.</string>
+    <string name="logout_toast">Logged Out</string>
+    <string name="appt_location">Location: Alipašina bb, Sarajevo 71000 (Juan Antonio Samaranch Olympic Hall)</string>
+    <string name="appt_selected_vacc">Selected Vaccine:</string>
+    <string name="appt_not_yet">You do not have an appointment yet.</string>
+    <string name="stats_getting_data">Getting data...</string>
+    <string name="stats_registered">Registered Users:</string>
+    <string name="eligible_msg_1">I\'ve registered to take the</string>
+    <string name="eligible_msg_2"> vaccine! My appointment is on the: </string>
+
 </resources>

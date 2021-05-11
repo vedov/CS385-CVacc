@@ -96,7 +96,6 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-
         super.onBackPressed()
         if (!findNavController(R.id.nav_host_fragment).navigateUp()) {
             moveTaskToBack(false)

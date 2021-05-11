@@ -32,10 +32,15 @@ class EligibleFragment : Fragment() {
         return binding.root
     }
 
-    private fun getShareIntent() : Intent {
+    private fun getShareIntent(): Intent {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain")
-            .putExtra(Intent.EXTRA_TEXT, "I've registered to take the "+vaccineName+" vaccine! My appointment is on the: "+dateFormat.format(calendar.time))
+            .putExtra(
+                Intent.EXTRA_TEXT,
+                  getString(R.string.eligible_msg_1) + " " + vaccineName + " " + getString(R.string.eligible_msg_2) + " " + dateFormat.format(
+                    calendar.time
+                )
+            )
         return shareIntent
     }
 
@@ -43,13 +48,12 @@ class EligibleFragment : Fragment() {
         startActivity(getShareIntent())
     }
 
-    private fun setDate(){
+    private fun setDate() {
         val date = Date()
         calendar.time = dateFormat.parse(dateFormat.format(date))
-        if(priorityFlag==true){
+        if (priorityFlag == true) {
             calendar.add(Calendar.DATE, 7)
-        }
-        else {
+        } else {
             calendar.add(Calendar.DATE, 14)
         }
     }
@@ -57,18 +61,19 @@ class EligibleFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.main, menu)
-        if(getShareIntent().resolveActivity(requireActivity().packageManager)==null){
+        if (getShareIntent().resolveActivity(requireActivity().packageManager) == null) {
             menu.findItem(R.id.share).isVisible = false
         }
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.share -> shareSuccess()
         }
         return super.onOptionsItemSelected(item)
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -77,13 +82,13 @@ class EligibleFragment : Fragment() {
         userId = mAuth.currentUser.uid
 
         val args = EligibleFragmentArgs.fromBundle(requireArguments())
-        vaccineName=args.vaccineName
-        priorityFlag=args.priorityFlag
+        vaccineName = args.vaccineName
+        priorityFlag = args.priorityFlag
 
         val docRef = firestore.collection("users").document(userId)
         docRef.update("vaccine", vaccineName)
         setDate()
-        docRef.update("appointment-date",dateFormat.format(calendar.time))
+        docRef.update("appointment-date", dateFormat.format(calendar.time))
         docRef.update("appointment-scheduled", "Yes")
 
         val finishBtn = binding.apptSuccessFinishBtn
