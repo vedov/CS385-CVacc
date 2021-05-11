@@ -42,6 +42,7 @@ class AppointmentFragment : Fragment() {
                         binding.apptNoteligibleText.text = getString(R.string.appt_not_yet)
                     } else {
                         binding.eligibleLayout.visibility = View.VISIBLE
+                        binding.eligibleLinearLayout.visibility = View.VISIBLE
                         binding.apptName.text = document.getString("name")
                         binding.apptDate.text = document.getString("appointment-date")
                         binding.apptVaccine.text = getString(R.string.appt_selected_vacc) + document.getString("vaccine")
