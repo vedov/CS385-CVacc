@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/appointmentFragment"
         android:name="com.example.cvacc.ui.appointment.AppointmentFragment"
-        android:label="My Appointment"
+        android:label="@string/menu_appt"
         tools:layout="@layout/fragment_appointment" >
         <action
             android:id="@+id/action_appointmentFragment_to_nav_home"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.example.cvacc.ui.stats.StatsFragment"
-        android:label="Statistics"
+        android:label="@string/menu_stats"
         tools:layout="@layout/fragment_stats" >
         <action
             android:id="@+id/action_statsFragment_to_nav_home"
@@ -40,7 +40,7 @@
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.cvacc.InfoFragment"
-        android:label="Info"
+        android:label="@string/drawer_info"
         tools:layout="@layout/fragment_info" >
         <action
             android:id="@+id/action_infoFragment_to_nav_home"
@@ -49,14 +49,14 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.cvacc.ProfileFragment"
-        android:label="Profile"
+        android:label="@string/drawer_profile"
         tools:layout="@layout/fragment_profile" >
         <action android:id="@+id/action_profileFragment_to_nav_home" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.cvacc.QuestionFragment"
-        android:label="Schedule an Appointment"
+        android:label="@string/appt_title"
         tools:layout="@layout/fragment_question">
         <action
             android:id="@+id/action_questionFragment_to_notEligibleFragment"
