@@ -37,7 +37,7 @@ class AppointmentFragment : Fragment() {
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    if (document.getString("appointment-scheduled").equals("No")) {
+                    if (document.getString("appointment-scheduled").equals("No") || document.getString("appointment-scheduled").isNullOrEmpty()) {
                         binding.noteligibleLayout.visibility = View.VISIBLE
                         binding.apptNoteligibleText.text = getString(R.string.appt_not_yet)
                     } else {
