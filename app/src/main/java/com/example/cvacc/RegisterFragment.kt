@@ -41,21 +41,21 @@ class RegisterFragment : Fragment() {
 
         registerBtn.setOnClickListener {
             if (email.text.toString().isEmpty()) {
-                email.setError("Please enter your email.")
+                email.setError(getString(R.string.email_error))
                 return@setOnClickListener
             } else if (password.text.toString().isEmpty()) {
-                password.setError("Please enter your password.")
+                password.setError(getString(R.string.pw_error))
                 return@setOnClickListener
             } else if (name.text.toString().isEmpty()) {
-                name.setError("Please enter your name.")
+                name.setError(getString(R.string.name_error))
                 return@setOnClickListener
             } else if (confirm.text.toString()
                     .isEmpty() || confirm.text.toString() != password.text.toString()
             ) {
-                confirm.setError("Passwords don't match.")
+                confirm.setError(getString(R.string.pw_error_2))
                 return@setOnClickListener
             } else if (age.text.toString().isEmpty()) {
-                age.setError("Please enter your password.")
+                age.setError(getString(R.string.age_error))
                 return@setOnClickListener
             }
 
@@ -71,14 +71,14 @@ class RegisterFragment : Fragment() {
                         user.put("age", age.text.toString())
                         docRef.set(user)
 
-                        Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT)
+                        Toast.makeText(context, getString(R.string.register_toast_success), Toast.LENGTH_SHORT)
                             .show()
                         val intent = Intent(context, MainActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(
                             context,
-                            "Registration failed,please try again!",
+                            getString(R.string.register_toast_fail),
                             Toast.LENGTH_SHORT
                         ).show()
                     }

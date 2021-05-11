@@ -1,5 +1,6 @@
 package com.example.cvacc
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,60 +28,7 @@ class QuestionFragment : Fragment() {
     private var badAnswersList: MutableList<String> = mutableListOf()
     private var choosenAnswersList: MutableList<String> = mutableListOf()
     private var questions = arrayListOf<Question>(
-        Question("Are you a citizen of Bosnia & Herzegovina?", "", false, false),
-        Question("Do you have COVID-19?", "", false, false),
-        Question(
-            "Did you have COVID-19 in the last 6 months?",
-            " individuals may wish to defer their own COVID-19 vaccination for up to 6 " +
-                    "months from the time of SARS-CoV-2 infection. " +
-                    "As more data becomes available on duration of immunity after infection, " +
-                    "this time period may be adjusted.",
-            false, false
-        ),
 
-        Question(
-            "Do you have a history of severe allergic reaction to any component " +
-                    "of the vaccine?",
-            "To view the components of the vaccine visit who.int/vaccines",
-            false, false
-        ),
-
-        Question(
-            "Are you pregnant or breastfeeding?",
-            "Pregnant women are at higher risk of severe COVID-19 than non-pregnant women," +
-                    " and COVID-19 has been associated with an increased risk of pre-term birth. " +
-                    "However due to insufficient data, WHO does not recommend the vaccination of " +
-                    "pregnant women at this time.",
-            false, false
-        ),
-
-        Question(
-            "Do you have any of the listed medical conditions?",
-            "This includes hypertension, diabetes, asthma, pulmonary, " +
-                    "liver or kidney disease, as well as chronic infections that are stable and" +
-                    " controlled.",
-            false, false
-        ),
-
-        Question(
-            "Are you working in a medical field?",
-            "", true, true
-        ),
-
-        Question(
-            "Do you have any chronic ilnesses?",
-            "Such as Cancer, Chronic Lung Diseases,"+
-                    " Dementia or other neurological conditions, HIV, Heart Conditions, etc.", true, true
-        ),
-
-        Question(
-            "Do you work or reside in Elderly Care? ",
-            "", true, true
-        ),
-
-        Question(
-            "Choose a vaccine you would like to be vaccinated with.",
-        ),
     )
 
     private fun setQuestion() {
@@ -108,6 +56,36 @@ class QuestionFragment : Fragment() {
         return binding.root
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        questions.addAll(arrayListOf(Question(getString(R.string.question_0_title), "", false, false),
+            Question(getString(R.string.question_1_title), "", false, false),
+            Question(
+                getString(R.string.question_2_title), getString(R.string.question_2_desc),
+                false, false
+            ),
+            Question(
+                getString(R.string.question_3_title), getString(R.string.question_3_desc),
+                false, false
+            ),
+            Question(
+                getString(R.string.question_4_title), getString(R.string.question_4_desc),
+                false, false
+            ),
+            Question(
+                getString(R.string.question_5_title), getString(R.string.question_5_desc),
+                false, false
+            ),
+            Question(getString(R.string.question_6_title), "", true, true),
+            Question(
+                getString(R.string.question_7_title), getString(R.string.question_7_desc),
+                true, true
+            ),
+            Question(
+                getString(R.string.question_8_title), "", true, true
+            ),
+            Question(getString(R.string.question_9_title)), ))
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -137,11 +115,10 @@ class QuestionFragment : Fragment() {
             choosenAnswersList.add(yesBtn.text.toString())
             //Provjeri da li je tu prepreka,ako jeste,preskoci sve i prikazi da ne ispunjava uslov za vakcinaciju
             if (currentQuestion.eligible == false) {
-                if(questionIndex==0){
+                if (questionIndex == 0) {
                     checkAnswer(yesBtn.text.toString())
                     segmentedProgressBar.incrementCompletedSegments();
-                }
-                else{
+                } else {
                     notEligibleQuestions.add(currentQuestion)
                     badAnswersList.add(currentQuestion.theQuestion)
                     badAnswersList.add("Yes")
@@ -149,8 +126,7 @@ class QuestionFragment : Fragment() {
                     checkAnswer(yesBtn.text.toString())
                     segmentedProgressBar.incrementCompletedSegments();
                 }
-            }
-            else {
+            } else {
                 //POSTAVLJANJE PRIORITETA ZA KORISNIKA, DOSTUPNI DATUMI PRIJE ONIH BEZ PRIORITETA, ODP SEDMICA DVIJE
                 if (currentQuestion.priority == true) {
                     priorityFlag = true
@@ -162,7 +138,7 @@ class QuestionFragment : Fragment() {
 
         noBtn.setOnClickListener {
             choosenAnswersList.add(noBtn.text.toString())
-            if (questionIndex==0) {
+            if (questionIndex == 0) {
                 notEligibleQuestions.add(currentQuestion)
                 badAnswersList.add(currentQuestion.theQuestion)
                 badAnswersList.add("No")
@@ -222,7 +198,10 @@ class QuestionFragment : Fragment() {
         val actionNE = QuestionFragmentDirections.actionQuestionFragmentToNotEligibleFragment(
             badAnswersList.toTypedArray()
         )
-        val actionE = QuestionFragmentDirections.actionQuestionFragmentToEligibleFragment(vaccineName,priorityFlag)
+        val actionE = QuestionFragmentDirections.actionQuestionFragmentToEligibleFragment(
+            vaccineName,
+            priorityFlag
+        )
         if (questionIndex >= questions.size - 1) {
             if (badAnswersList.size > 0) {
                 findNavController().navigate(actionNE)
@@ -232,19 +211,19 @@ class QuestionFragment : Fragment() {
         }
     }
 
-    private fun checkUserAge(docRef : DocumentReference){
+    private fun checkUserAge(docRef: DocumentReference) {
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     val userAge = document.getString("age")
                     if (userAge != null) {
-                        if (userAge.toInt()<18) {
-                            badAnswersList.add("You are under the age of 18")
+                        if (userAge.toInt() < 18) {
+                            badAnswersList.add(getString(R.string.age_error_2))
                             badAnswersList.add("")
-                        } else if(userAge.toInt()>=65){
+                        } else if (userAge.toInt() >= 65) {
                             priorityFlag = true
+                        } else {
                         }
-                        else {}
                     }
                 }
             }

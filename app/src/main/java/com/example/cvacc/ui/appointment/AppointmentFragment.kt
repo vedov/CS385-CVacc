@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.cvacc.R
 import com.example.cvacc.databinding.FragmentAppointmentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,13 +39,13 @@ class AppointmentFragment : Fragment() {
                 if (document != null) {
                     if (document.getString("appointment-scheduled").equals("No")) {
                         binding.noteligibleLayout.visibility = View.VISIBLE
-                        binding.apptNoteligibleText.text = "You do not have an appointment yet."
+                        binding.apptNoteligibleText.text = getString(R.string.appt_not_yet)
                     } else {
                         binding.eligibleLayout.visibility = View.VISIBLE
                         binding.apptName.text = document.getString("name")
                         binding.apptDate.text = document.getString("appointment-date")
-                        binding.apptVaccine.text = "Selected Vaccine: " + document.getString("vaccine")
-                        binding.apptLocation.text = "Location: Alipašina bb, Sarajevo 71000 (Juan Antonio Samaranch Olympic Hall)"
+                        binding.apptVaccine.text = getString(R.string.appt_selected_vacc) + document.getString("vaccine")
+                        binding.apptLocation.text = getString(R.string.appt_location)
                     }
                 }
             }

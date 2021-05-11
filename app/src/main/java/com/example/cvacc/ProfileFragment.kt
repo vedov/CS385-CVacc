@@ -12,7 +12,6 @@ import com.example.cvacc.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     lateinit var mAuth: FirebaseAuth;
@@ -45,7 +44,7 @@ class ProfileFragment : Fragment() {
 
         logoutBtn.setOnClickListener {
             mAuth.signOut()
-            Toast.makeText(context, "Logged Out", Toast.LENGTH_SHORT)
+            Toast.makeText(context, getString(R.string.logout_toast), Toast.LENGTH_SHORT)
                 .show()
             val intent = Intent(context, WelcomeActivity::class.java)
             startActivity(intent)

@@ -158,7 +158,7 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:padding="16dp"
-                android:text="@string/welcome_pw"
+                android:text="@string/welcome_login_btn"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/blue_500"
                 app:cornerRadius="10dp"

@@ -56,7 +56,7 @@ class StatsFragment : Fragment() {
         getChartData(docRef)
         val statsTitle = binding.statsTitle
 
-        Timer("Getting data...", false).schedule(700) {
+        Timer("Getting data...", false).schedule(1000) {
 
             statsTitle.text = "Registered Users: $registeredUsers"
             vaccines.add(PieEntry((pfizerCounter.toFloat()/4)*100, "Pfizer"))

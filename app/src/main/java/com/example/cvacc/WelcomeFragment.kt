@@ -36,10 +36,10 @@ class WelcomeFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         loginBtn.setOnClickListener { view: View ->
             if (email.text.toString().isEmpty()) {
-                email.setError("Please enter your email.")
+                email.setError(getString(R.string.email_error))
                 return@setOnClickListener
             } else if (password.text.toString().isEmpty()) {
-                password.setError("Please enter your password.")
+                password.setError(getString(R.string.pw_error))
                 return@setOnClickListener
             }
             mAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
@@ -51,7 +51,7 @@ class WelcomeFragment : Fragment() {
                     } else {
                         Toast.makeText(
                             context,
-                            "Login failed,please try again!",
+                            getString(R.string.welcome_error_toast),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
