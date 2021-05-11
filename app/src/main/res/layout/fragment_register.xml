@@ -115,7 +115,7 @@
                     app:boxStrokeColor="@color/blue_500"
                     app:hintTextColor="@color/blue_500"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-                    app:startIconDrawable="@drawable/info"
+                    app:startIconDrawable="@drawable/ic_baseline_email_24"
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -137,6 +137,7 @@
                     app:boxStrokeColor="@color/blue_500"
                     app:hintTextColor="@color/blue_500"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+                    app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -159,6 +160,7 @@
                     app:boxStrokeColor="@color/blue_500"
                     app:endIconMode="password_toggle"
                     app:hintTextColor="@color/blue_500"
+                    app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
                     tools:layout_editor_absoluteX="32dp">
 
@@ -182,6 +184,7 @@
                     app:boxStrokeColor="@color/blue_500"
                     app:endIconMode="password_toggle"
                     app:hintTextColor="@color/blue_500"
+                    app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
                     tools:layout_editor_absoluteX="32dp">
 
@@ -205,7 +208,7 @@
                     app:boxStrokeColor="@color/blue_500"
                     app:hintTextColor="@color/blue_500"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:startIconDrawable="@drawable/info"
+                    app:startIconDrawable="@drawable/ic_baseline_person_24"
                     tools:layout_editor_absoluteX="32dp">
 
                     <com.google.android.material.textfield.TextInputEditText

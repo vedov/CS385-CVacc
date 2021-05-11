@@ -25,7 +25,7 @@
     <string name="welcome_title">Dobrodošli u CVacc!</string>
     <string name="welcome_desc">Prijavite se ili registrujte da zakažete termin.</string>
     <string name="welcome_login_btn">Prijavi se</string>
-    <string name="welcome_register_btn">Registruj</string>
+    <string name="welcome_register_btn">Registruj se</string>
     <string name="welcome_divider">ili</string>
     <string name="drawer_profile">Profil</string>
     <string name="menu_appt">Moj Termin</string>
@@ -36,7 +36,7 @@
     <string name="info_tag_one">COVID-19 vakcine</string>
     <string name="info_created">Kreirali</string>
     <string name="info_tag_one_desc">Vakcine protiv virusa COVID-19 su sigurne i efikasne. Nakon što se u potpunosti cijepite, možete početi raditi neke stvari koje ste morali prestati raditi zbog pandemije.</string>
-    <string name="info_tag_two">Šta trebate znatio vakcinama</string>
+    <string name="info_tag_two">Šta trebate znati o vakcinama</string>
     <string name="info_tag_two_desc_one">COVID-19 vakcine su sigurne i efikasne.</string>
     <string name="info_tag_two_desc_two">Nakon vakcinacije možete imati neželjene efekte, ali oni su normalni.</string>
     <string name="info_tag_two_desc_three">Obično su potrebne dvije sedmice nakon vakcinisanja da tijelo izgradi zaštitu (imunitet) protiv virusa koji uzrokuje COVID-19. Potpuno ste vakcinisani tek dvije sedmice nakon druge doze vakcine s dvije doze ili dvije sedmice nakon vakcine sa jednom dozom.</string>

@@ -38,7 +38,7 @@ class ProfileFragment : Fragment() {
                     val age: TextView = binding.profileAge
                     name.text = document.getString("name")
                     mail.text = document.getString("email")
-                    age.text = document.getString("dob")
+                    age.text = document.getString("age")
                 }
             }
 

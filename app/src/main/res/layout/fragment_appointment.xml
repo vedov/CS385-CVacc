@@ -16,7 +16,7 @@
             android:id="@+id/eligibleLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/appt_name"
@@ -113,18 +113,6 @@
                     android:textStyle="bold"
                     android:typeface="sans" />
 
-                <ImageView
-                    android:id="@+id/appt_map"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:cropToPadding="true"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingBottom="16dp"
-                    android:scaleType="center"
-                    app:srcCompat="@drawable/ic_map" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

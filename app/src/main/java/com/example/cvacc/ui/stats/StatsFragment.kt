@@ -1,6 +1,8 @@
 package com.example.cvacc.ui.stats
 
 import android.annotation.SuppressLint
+import android.graphics.Color.RED
+import android.graphics.Color.parseColor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,40 +48,29 @@ class StatsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val chart: PieChart = binding.chart
+
         mAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
         userId = mAuth.currentUser.uid
 
 
         val docRef = firestore.collection("users")
-        getChartData(docRef)
-        val statsTitle = binding.statsTitle
-
-        Timer("Getting data...", false).schedule(1000) {
-
-            statsTitle.text = "Registered Users: $registeredUsers"
-            vaccines.add(PieEntry((pfizerCounter.toFloat()/4)*100, "Pfizer"))
-            vaccines.add(PieEntry((modernaCounter.toFloat()/4)*100, "Moderna"))
-            vaccines.add(PieEntry((astrazeCounter.toFloat()/4)*100, "Astra Zeneca"))
-            vaccines.add(PieEntry((sputnikCounter.toFloat()/4)*100, "Sputnik IV"))
-            val set = PieDataSet(vaccines,"Vaccines")
-
-            set.setColors(
-                intArrayOf(R.color.blue_500, R.color.blue_900, R.color.gray_900, R.color.blue_400),
-                context
-            )
-            val data = PieData(set)
-            chart.setData(data)
-            chart.invalidate()
+        Timer("Getting Data,false").schedule(750){
+            getChartData(docRef)
         }
+
+
+
+
     }
     fun getChartData(docRef: CollectionReference){
+        val chart: PieChart = binding.chart
+        val statsTitle = binding.statsTitle
         val pfizerQuery = docRef.whereEqualTo("vaccine", "Pfizer")
         val modernaQuery = docRef.whereEqualTo("vaccine", "Moderna")
         val sputnikQuery = docRef.whereEqualTo("vaccine", "Sputnik IV")
         val astrazeQuery = docRef.whereEqualTo("vaccine", "Astra Zeneca")
-        docRef.get().addOnSuccessListener { documents ->
+        docRef.whereEqualTo("appointment-scheduled","Yes").get().addOnSuccessListener { documents ->
             for(document in documents){
                 registeredUsers++
             }
@@ -107,6 +98,28 @@ class StatsFragment : Fragment() {
             for (document in documents) {
                 astrazeCounter++
             }
+        }
+        docRef.get().addOnCompleteListener {
+            if(it.isSuccessful){
+                statsTitle.text = "Registered Users: $registeredUsers"
+                vaccines.add(PieEntry((pfizerCounter.toFloat()/registeredUsers)*100, "Pfizer"))
+                vaccines.add(PieEntry((modernaCounter.toFloat()/registeredUsers)*100, "Moderna"))
+                vaccines.add(PieEntry((astrazeCounter.toFloat()/registeredUsers)*100, "Astra Zeneca"))
+                vaccines.add(PieEntry((sputnikCounter.toFloat()/registeredUsers)*100, "Sputnik IV"))
+                val set = PieDataSet(vaccines,"Vaccines")
+                set.setColors(
+                    intArrayOf(R.color.red_200, R.color.blue_900, R.color.gray_900, R.color.green_600),
+                    context)
+                val data = PieData(set)
+                chart.description.isEnabled = false
+                chart.setData(data)
+                chart.notifyDataSetChanged()
+                chart.invalidate()
+            }
+
+
+
+
         }
     }
 }

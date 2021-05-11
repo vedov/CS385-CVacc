@@ -3,7 +3,7 @@
     <string name="title_activity_main" translatable="false">MainActivity</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_title" translatable="false">CVacc</string>
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
@@ -67,9 +67,9 @@
     <string name="name_error">Please enter your name.</string>
     <string name="pw_error_2">Passwords don\'t match</string>
     <string name="age_error">Please enter your age.</string>
-    <string name="welcome_error_toast">Login failed,please try again!</string>
     <string name="register_toast_success">Registration successful!</string>
     <string name="register_toast_fail">Registration failed, please try again!</string>
+    <string name="welcome_error_toast">Login failed,please try again!</string>
     <string name="age_error_2">You are under the age of 18</string>
     <string name="question_0_title">Are you a citizen of Bosnia &amp; Herzegovina?</string>
     <string name="question_1_title">Do you have COVID-19?</string>
@@ -94,4 +94,5 @@
     <string name="stats_registered">Registered Users:</string>
     <string name="eligible_msg_1">I\'ve registered to take the</string>
     <string name="eligible_msg_2"> vaccine! My appointment is on the: </string>
+
 </resources>
