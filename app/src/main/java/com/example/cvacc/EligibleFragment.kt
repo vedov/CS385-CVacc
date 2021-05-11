@@ -37,7 +37,7 @@ class EligibleFragment : Fragment() {
         shareIntent.setType("text/plain")
             .putExtra(
                 Intent.EXTRA_TEXT,
-                getString(R.string.eligible_msg_1) + vaccineName + getString(R.string.eligible_msg_2) + dateFormat.format(
+                  getString(R.string.eligible_msg_1) + " " + vaccineName + " " + getString(R.string.eligible_msg_2) + " " + dateFormat.format(
                     calendar.time
                 )
             )

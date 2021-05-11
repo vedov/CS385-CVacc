@@ -5,10 +5,10 @@
     <string name="aptt_success_desc">Idi na Moj Termin da vidiš datum i mjesto vakcinacije.</string>
     <string name="appt_success_btn">Potvrdi</string>
     <string name="home_title">Zakaži termin</string>
-    <string name="home_desc">Provjerite ispunjavate li uslove za primanje COVID19 vakcine i zakažite termin na najbližoj lokaciji.</string>
+    <string name="home_desc">Provjerite ispunjavate li uslove za primanje vakcine protiv virusa COVID-19 i zakažite termin na najbližoj lokaciji.</string>
     <string name="home_schedule_btn">Zakaži</string>
     <string name="appt_fail_title">Nažalost nismo u mogućnosti zakazati termin.</string>
-    <string name="appt_fail_desc">Zbog Vaših odgovora na prethodna pitanja, ne ispunjavate uslove za primanje COVID-19 vakcine.</string>
+    <string name="appt_fail_desc">Zbog Vaših odgovora na prethodna pitanja, ne ispunjavate uslove za vakcinisanje protiv virusa COVID-19.</string>
     <string name="appt_fail_back_btn">Nazad na početnu stranicu</string>
     <string name="profile_name_title">Vaš profil</string>
     <string name="profile_age_title">Godine</string>
@@ -22,7 +22,6 @@
     <string name="register_pw">Lozinka</string>
     <string name="register_name">Ime i prezime</string>
     <string name="register_btn">Registruj se</string>
-    <string name="stats_title">Registrovani korisnici:</string>
     <string name="welcome_title">Dobrodošli u CVacc!</string>
     <string name="welcome_desc">Prijavite se ili registrujte da zakažete termin.</string>
     <string name="welcome_login_btn">Prijavi se</string>
@@ -33,21 +32,21 @@
     <string name="menu_stats">Statistika</string>
     <string name="share_btn">Podijeli</string>
     <string name="drawer_info">Info</string>
-    <string name="appt_title">Ispod možete vidjeti informacije o zakazanom terminu. Obavezno ponesite ličnu i zdravstvenu kartu sa sobom na termin</string>
-    <string name="info_tag_one">Vakcine za COVID-19</string>
+    <string name="appt_title">Ispod možete vidjeti informacije o zakazanom terminu. Obavezno ponesite ličnu i zdravstvenu kartu sa sobom na vakcinaciju.</string>
+    <string name="info_tag_one">COVID-19 vakcine</string>
     <string name="info_created">Kreirali</string>
-    <string name="info_tag_one_desc">Vakcine protiv COVID-19 su sigurne i efikasne. Nakon što se u potpunosti cijepite, možete početi raditi neke stvari koje ste morali prestati raditi zbog pandemije.</string>
-    <string name="info_tag_two">Šta trebate znati</string>
+    <string name="info_tag_one_desc">Vakcine protiv virusa COVID-19 su sigurne i efikasne. Nakon što se u potpunosti cijepite, možete početi raditi neke stvari koje ste morali prestati raditi zbog pandemije.</string>
+    <string name="info_tag_two">Šta trebate znatio vakcinama</string>
     <string name="info_tag_two_desc_one">COVID-19 vakcine su sigurne i efikasne.</string>
     <string name="info_tag_two_desc_two">Nakon vakcinacije možete imati neželjene efekte, ali oni su normalni.</string>
     <string name="info_tag_two_desc_three">Obično su potrebne dvije sedmice nakon vakcinisanja da tijelo izgradi zaštitu (imunitet) protiv virusa koji uzrokuje COVID-19. Potpuno ste vakcinisani tek dvije sedmice nakon druge doze vakcine s dvije doze ili dvije sedmice nakon vakcine sa jednom dozom.</string>
-    <string name="info_tag_two_desc_four">Koristite ovu aplikaciju kako biste lako zakazali vakcinaciju i pomogli nam da smanjimo širenje COVID-19</string>
+    <string name="info_tag_two_desc_four">Koristite ovu aplikaciju kako biste lako zakazali vakcinaciju i pomogli nam da smanjimo širenje virusa COVID-19.</string>
     <string name="appt_noteligible_text">Još uvijek niste zakazali termin.</string>
-    <string name="email_error">Unesite email.</string>
-    <string name="pw_error">Unesite lozinku.</string>
-    <string name="name_error">Unesite ime i prezime.</string>
-    <string name="pw_error_2">Šifre nisu jednake.</string>
-    <string name="age_error">Unesite Vaše godine.</string>
+    <string name="email_error">Unesite email</string>
+    <string name="pw_error">Unesite lozinku</string>
+    <string name="name_error">Unesite ime i prezime</string>
+    <string name="pw_error_2">Šifre nisu jednake</string>
+    <string name="age_error">Unesite Vaše godine</string>
     <string name="welcome_error_toast">Prijava neuspješna, pokušajte opet!</string>
     <string name="register_toast_success">Registracija uspješna!</string>
     <string name="register_toast_fail">Registracija neuspješna, pokušajte opet!</string>
@@ -57,9 +56,9 @@
     <string name="question_2_title">Da li ste imali COVID-19 u posljednjih 6 mjeseci?</string>
     <string name="question_2_desc">Pojedinci mogu odgoditi vakcinaciju protiv COVID-19 najviše 6 mjeseci od trenutka infekcije virusom SARS-CoV-2. Kada bude dostupno više informacija o trajanju imuniteta, ovaj vremenski period se može promijeniti.</string>
     <string name="question_3_title">Imate li historiju alergijskih reakcija na bilo koju komponentu vakcine?</string>
-    <string name="question_3_desc">Da biste pogledali komponente vakcine, posjetite who.int/vaccines</string>
+    <string name="question_3_desc">Da biste pogledali komponente vakcine, posjetite <a href="https://who.int/vaccines"></a></string>
     <string name="question_4_title">Jeste li trudni ili dojite?</string>
-    <string name="question_4_desc">Trudnice imaju veći rizik od zaraze virusom COVID-19, a COVID-19 je također povezan i s povećanim rizikom od prijevremenog porođaja. Međutim, zbog nedovoljno podataka, WHO trenutno ne preporučuje vakcinaciju trudnica.</string>
+    <string name="question_4_desc">Trudnice imaju veći rizik od zaraze virusom COVID-19, a COVID-19 je također povezan i s povećanim rizikom od prijevremenog porođaja. Zbog nedovoljno podataka WHO trenutno ne preporučuje vakcinaciju trudnica.</string>
     <string name="question_5_title">Da li imate neko od navedenih zdravstvenih stanja?</string>
     <string name="question_5_desc">To uključuje hipertenziju, dijabetes, astmu, plućne bolesti, bolesti jetre ili bubrega, kao i hronične infekcije koje su stabilne i kontrolirane.</string>
     <string name="question_6_title">Da li radite u medicinskom polju?</string>
@@ -71,8 +70,7 @@
     <string name="appt_location">Lokacija: Alipašina bb, Sarajevo 71000 (Olimpijska dvorana Juan Antonio Samaranch)</string>
     <string name="appt_selected_vacc">Izabrana vakcina: </string>
     <string name="appt_not_yet">Još uvijek nemate zakazan termin.</string>
-    <string name="stats_getting_data">Prikupljanje podataka...</string>
-    <string name="stats_registered">Registrovanih korisnika:</string>
+    <string name="stats_registered">Registrovanih korisnika: </string>
     <string name="eligible_msg_1">Registrovao/la sam se da primim</string>
     <string name="eligible_msg_2"> vakcinu! Moj termin je: </string>
 </resources>
