@@ -73,4 +73,6 @@
     <string name="stats_registered">Registrovanih korisnika: </string>
     <string name="eligible_msg_1">Registrovao/la sam se da primim</string>
     <string name="eligible_msg_2"> vakcinu! Moj termin je: </string>
+    <string name="menu_questions">Zakaži termin</string>
+
 </resources>

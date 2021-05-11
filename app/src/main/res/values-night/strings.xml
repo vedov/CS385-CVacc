@@ -94,5 +94,6 @@
     <string name="stats_registered">Registered Users:</string>
     <string name="eligible_msg_1">I\'ve registered to take the</string>
     <string name="eligible_msg_2"> vaccine! My appointment is on the: </string>
+    <string name="menu_questions">Schedule An Appointment</string>
 
 </resources>

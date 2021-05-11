@@ -7,7 +7,7 @@
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
-
+    <string name="menu_questions">Schedule An Appointment</string>
     <string name="menu_home">Home</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="appt_success_title">An appointment has been scheduled.</string>

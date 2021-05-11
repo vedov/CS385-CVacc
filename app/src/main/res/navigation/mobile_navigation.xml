@@ -56,7 +56,7 @@
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.cvacc.QuestionFragment"
-        android:label="@string/appt_title"
+        android:label="@string/menu_questions"
         tools:layout="@layout/fragment_question">
         <action
             android:id="@+id/action_questionFragment_to_notEligibleFragment"
